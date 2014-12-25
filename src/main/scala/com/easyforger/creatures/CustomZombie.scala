@@ -1,4 +1,4 @@
-package com.jcranky.forge.dsl.creatures
+package com.easyforger.creatures
 
 import mods.SimpleMod
 import net.minecraft.entity.monster.EntityZombie

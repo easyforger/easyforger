@@ -1,6 +1,6 @@
-package com.jcranky.forge.dsl
+package com.easyforger
 
-import com.jcranky.forge.dsl.creatures.CreaturesSupport
+import com.easyforger.creatures.CreaturesSupport
 import net.minecraft.block.Block
 import net.minecraft.item.{Item, ItemStack}
 

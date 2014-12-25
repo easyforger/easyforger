@@ -1,4 +1,4 @@
-package com.jcranky.forge.dsl.creatures
+package com.easyforger.creatures
 
 import net.minecraft.entity.EntityLiving
 import net.minecraft.item.{ItemStack, Item}

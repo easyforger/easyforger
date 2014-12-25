@@ -19,7 +19,7 @@ apply plugin: 'scala'
 apply plugin: 'forge'
 
 version = "0.1"
-group = "com.jcranky.forge.dsl.interpreter" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group = "com.easyforger" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "dsl-interpreter"
 
 minecraft {

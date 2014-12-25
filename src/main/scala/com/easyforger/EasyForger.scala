@@ -1,14 +1,14 @@
-package com.jcranky.forge.dsl
+package com.easyforger
 
-import com.jcranky.forge.dsl.creatures.CreaturesHandler
+import com.easyforger.creatures.CreaturesHandler
 import cpw.mods.fml.common.Mod
 import cpw.mods.fml.common.Mod.EventHandler
 import cpw.mods.fml.common.event.FMLPreInitializationEvent
 import cpw.mods.fml.common.registry.GameRegistry
 import mods.SimpleMod
 
-@Mod(modid = "com.jcranky.forge.dsl.interpreter", name = "DSL Interpreter", version = "0.1", modLanguage = "scala")
-object DSLInterpreter {
+@Mod(modid = "com.easyforger", name = "EasyForger", version = "0.1", modLanguage = "scala")
+object EasyForger {
 
   @EventHandler
   def preInit(event: FMLPreInitializationEvent) = {

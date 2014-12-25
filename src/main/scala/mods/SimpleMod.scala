@@ -1,7 +1,7 @@
 package mods
 
-import com.jcranky.forge.dsl.DSLMod
-import com.jcranky.forge.dsl.creatures.SkeletonBehavior
+import com.easyforger.DSLMod
+import com.easyforger.creatures.SkeletonBehavior
 
 object SimpleMod extends DSLMod {
   import net.minecraft.init.Blocks._

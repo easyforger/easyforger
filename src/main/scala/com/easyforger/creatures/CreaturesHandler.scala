@@ -1,4 +1,4 @@
-package com.jcranky.forge.dsl.creatures
+package com.easyforger.creatures
 
 import cpw.mods.fml.common.registry.EntityRegistry
 import net.minecraft.entity.{EntityLiving, EnumCreatureType}
