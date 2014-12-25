@@ -1,5 +1,262 @@
 Changelog:
-Build 1217:
+Build 1277:
+	mattmess1221: Fix MC-30864 (sending web links in chat)
+
+Build 1.7.10-10.13.2.1276:
+	clashsoft: Fix Stained Glass pane rendering issues
+
+Build 1.7.10-10.13.2.1275:
+	Kittychanley: Removed exclusion of white stained glass recipes in ore dictionary. Closes #1502 & #1481
+
+Build 1.8-11.14.0.1274-1.8:
+	LexManos: Fix BlockSnapshots not firing correctly due to patch mixup in 1.8 update. Closes #1591
+
+Build 1.8-11.14.0.1273-1.8:
+	jadran.kotnik: Fixed messages not being added to the chat history and ClientCommandHandler not being called when sleeping.
+
+Build 1.7.10-10.13.2.1272:
+	jadran.kotnik: Fixed messages not being added to the chat history and ClientCommandHandler not being called when sleeping.
+
+Build 1.8-11.14.0.1271-1.8:
+	LexManos: Fix incorrect logic in world change clumping.
+	LexManos: MinecraftForge/FML@5a4d362293fe70e1421d1f22c4a195944731d6ba Finish removing marker in mapping entry names. FMLMissingMappingsEvent/FMLModIdMappingEvent should fire with correct names now.
+
+Build 1.7.10-10.13.2.1270:
+	LexManos: Remove our changes to Stitcher slot allocation.
+	LexManos: Fix incorrect logic in world change clumping.
+
+Build 1.8-11.14.0.1269-1.8:
+	LexManos: MinecraftForge/FML@e3785c28930a218cf9374458c67c34e7fba17922 Ensure that EntitySpawn and OpenGUI packets are handled in the world thread. Also log all errors that are thrown in FutureTasks.
+	LexManos: Remove our changes to Stitcher slot allocation.
+
+Build 1.8-11.14.0.1268-1.8:
+	LexManos: Fix userdev for new BlockState change.
+
+Build 1.8-11.14.0.1267-1.8:
+	rainwarrior: Added model bake event (allows mods to insert custom baked models, much like TextureStitchEvent allows to load custom textures), ISmartBlock/ItemModel (ability form models to react to block/item states), Block.getExtendedState, support for unlisted properties in block states. Includes example implementation of http://imgur.com/a/FyyJX
+
+Build 1.8-11.14.0.1266-1.8:
+	LexManos: Untie ItemModelMesher from using Item Ids internally by implementing our own simple mechanics using Trove.
+
+Build 1.8-11.14.0.1265-1.8:
+	LexManos: Fix texture stitcher not using all avalible spaces.
+	LexManos: Fix EnumHelper for new ArmorTexture argument.
+
+Build 1.7.10-10.13.2.1264:
+	LexManos: Fix texture stitcher not using all avalible spaces. Closes #1557
+
+Build 1.7.10-10.13.2.1263:
+	LexManos: Fixed NPE thrown when brewing event is fired and not all slots are filled.
+
+Build 1.8-11.14.0.1262-1.8:
+	LexManos: Fixed NPE thrown when brewing event is fired and not all slots are filled. Closes #1564
+	LexManos: Make daylight sensor recipe use ore dictionary wooden slabs Closes #1565
+	LexManos: Fix missed patch causing Dispensed Armor to go into the wrong slot. Closes #1560
+	LexManos: Fixed log spam when breaking DoublePlants. Closes #1555
+
+Build 1.8-11.14.0.1261-1.8:
+	LexManos: Unbind Shaped/Shapeless Ore Recipies from Array list to normal List.
+
+Build 1.8-11.14.0.1259-1.8:
+	LexManos: Add quartz_ore tool init, more mojang special casing -.-
+	LexManos: Changed ToolMaterial's repair material to ItemStack version to allow metadata sensitive versions.
+	LexManos: Improved Control of Enchantment.canApplyTogether() in Mod Enchantments, allowing both enchantments to determine if they can apply together.
+	LexManos: Expand PlayerWakupEvent to expose the three parameters passed into EntityPlayer.wakeUp.
+
+Build 1.7.10-10.13.2.1258:
+	LexManos: Add quartz_ore tool init, more mojang special casing -.- Closes #1333 and Closes #1335
+	LexManos: Fix invalid argument being passed to Block.isNormalCube from World.updateNeighbors. Closes #1339 and Closes #1346
+	LexManos: Changed ToolMaterial's repair material to ItemStack version to allow metadata sensitive versions. Closes #1355
+	LexManos: Improved Control of Enchantment.canApplyTogether() in Mod Enchantments, allowing both enchantments to determine if they can apply together. Closes #1434
+	LexManos: Expand PlayerWakupEvent to expose the three parameters passed into EntityPlayer.wakeUp. Closes #1486
+
+Build 1.8-11.14.0.1257-1.8:
+	LexManos: Fixed bug in ServerConfigurationManager.transferPlayerToDimension where it would send the old dimension's information.
+	LexManos: Add "sand" to the OreDictionary
+	LexManos: Cleanup deprecated code, and TODOs in OreDictionary. Down-typed things from ArrayList to List. Asking for the ores with a null stack will now throw an Exception.
+	LexManos: Added CreateSpawnPosition event.
+	LexManos: Add LivingHealEvent called from EntityLivingBase.heal()
+	LexManos: Added PotionBrewEvent.Pre/Post. To allow for modification and cancelation of Brewing.
+
+Build 1.7.10-10.13.2.1256:
+	LexManos: Fixed bug in ServerConfigurationManager.transferPlayerToDimension where it would send the old dimension's information. Closes #1548
+	LexManos: Add "sand" to the OreDictionary Closes #1487
+	LexManos: Added CreateSpawnPosition event Closes #1053
+	LexManos: Add LivingHealEvent called from EntityLivingBase.heal() Closes #1282
+	LexManos: Added PotionBrewEvent.Pre/Post. To allow for modification and cancelation of Brewing. Closes #1248
+
+Build 1.8-11.14.0.1255-1.8:
+	LexManos: Added Explosion Start and Detonate events to control explosion.
+
+Build 1.7.10-10.13.2.1254:
+	LexManos: Added Explosion Start and Detonate events to control explosion. Closes #1469
+
+Build 1.7.10-10.13.2.1253:
+	draco18s:
+		Update RenderBlockFluid.java
+		
+		Added tessellator calls to render the block's back faces, so that the liquid properly renders when the player is immersed in the fluid.
+
+Build 1.8-11.14.0.1252-1.8:
+	LexManos: Fix finding of spawn location for mobs. Closes #1546
+	LexManos: Only call blockBreak when block itself changes, not just meta. Fixes bottles poping out of brewing stands.
+
+Build 1.8-11.14.0.1251-1.8:
+	LexManos:
+		Updated FML:
+		MinecraftForge/FML@9c8ca4a4e3c4acc4980535e5c60da169b75a7810 Unlink banner block and item id. Mojang should of matched these up but they didn't -.-
+		MinecraftForge/FML@84a101f344b8fc21de1201fde717fbcbcba2aa79 Update Dev mcp mappings to 11-30 snapshot.
+	LexManos: Remove debug patch I left in.
+
+Build 1.8-11.14.0.1249-1.8:
+	LexManos: Fix stickey pistons not retracting properly.
+
+Build 1.8-11.14.0.1248-1.8:
+	LexManos: Fixed vanilla bug where top part of double plants would flicker a tifferent texture before dissapearing.
+	LexManos: Fix NPE with BlockSnapshots that caused items with TileEntities to be used up in creative mode.
+	LexManos: Fixed vanilla issue where exceptions in World tasks would not be logged.
+	LexManos: Fixed blocks not breaking properly when instantly destroied.
+
+Build 1.8-11.14.0.1247-1.8:
+	LexManos: Fix BlockPane's connection detection.
+
+Build 1.8-11.14.0.1246-1.8:
+	LexManos: Fixed Entity extended properties init order. Closes #1532
+	LexManos: Fixed Entities not being able to climb ladders, Closes #1535
+	LexManos: Fixed snow layers not being able to stack more then twice. Closes #1534
+
+Build 1.8-11.14.0.1245-1.8:
+	LexManos: Fix interacting with entities.
+
+Build 1.8-11.14.0.1244-1.8:
+	LexManos: Fix debug screen not showing grey background. Closes #1529
+	LexManos: Fix not being able to place blocks in liquids, and related issues.
+	LexManos:
+		Updated FML:
+		MinecraftForge/FML@36644e97714b46dbbb24416febdde1332a3e753c Finalize modded handshakes in the World tick thread. Prevents potential CMEs when login event takes to long to fire.
+
+Build 1.8-11.14.0.1243-1.8:
+	LexManos: Fix potential NPE in Block.isToolEffective
+	LexManos: Update RecipeSorter for new 1.8 recipies.
+	LexManos: Fix destroy particles not being added. Closes #1528
+
+Build 1.8-11.14.0.1242-1.8:
+	LexManos: Fixed crash with caomparators due to wrong position. Closes #1512
+	LexManos: Fix inverted logic preventing blocks from breaking.
+	LexManos: Fix Entityies not taking damage correctly. Closes #1511
+	LexManos: Fix wrong state being passed to Block.getDrops
+
+Build 1.8-11.14.0.1241-1.8:
+	LexManos: Fix fog colors, Closes #1524
+	LexManos: Fix acedential inversion causing some tress to not have leaves. Closes #1522
+	LexManos: Fix creative picking a CommandBlock minecart returning wrong item. Closes #1523
+
+Build 1.7.10-10.13.2.1240:
+	LexManos: Fix creative picking a CommandBlock minecart returning wrong item. Closes #1523
+
+Build 1.8-11.14.0.1239-1.8:
+	LexManos: Fix local variable conflict in Forge patch and latest MCP mappings.
+
+Build 1.7.10-10.13.2.1236:
+	xcompwiz:
+		Fixes client-side fake rain
+		
+		Changes the updateWeather function in WorldServer to only send the
+		weather info to players in the correct dimension, rather than all
+		players on the server. This is what causes the client-side rain, as the
+		client believes that it has started raining locally, rather than in
+		another dimension.
+
+Build 1.7.10-10.13.2.1235:
+	oliver.kahrmann:
+		Modify WavefrontObject to allow '.' in group object names
+		
+		Blender names objects with .001 ir .002 when separating vertices or duplicating objects and the importer would crash on them. This fixes the regex to allow dots in the name.
+
+Build 1.7.10-10.13.2.1234:
+	LexManos: Player sensitive version of Block.getPickBlock Closes #1348
+
+Build 1.7.10-10.13.2.1233:
+	LexManos: Fix slots being black due to vanilla blending leakage Forge fixes. Closes #1325 & #1242
+
+Build 1.7.10-10.13.2.1232:
+	luacs1998:
+		Create CONTRIBUTING.md
+		
+		Simple file (which github will show for those making PRs) containing guidelines for making PRs.
+		Feel free to comment if you want/need anything added. I can pull the same thing to FML too if you'd like, Lex.
+	luacs1998:
+		Update CONTRIBUTING.md
+		
+		Add link to wiki page on contributing
+
+Build 1.7.10-10.13.2.1231:
+	Adubbz: Fixed desert list initialization. Fixes #1447
+
+Build 1.7.10-10.13.2.1230:
+	LexManos: Fix logic error in Blodd's Snapshot capture that caused blocks to not be updated to the client. Closes #1451
+	LexManos: Bump version for new RB.
+
+Build 1.7.10-10.13.1.1229:
+	AbrarSyed: implemented crowdin support
+	matthewprenger: Add username cache for determining a player's last known username
+	azanor1:
+		Fix for biome weights under 10
+		
+		This solves the problem where custom mod biomes with weights under 10
+		not being generated in the world.
+		
+		Cleaned up the code and made the patch smaller
+
+Build 1.7.10-10.13.1.1226:
+	LexManos: Compleetly disable stencil bits unless told not to by using the -Dforge.forceDisplayStencil=true flag. Should solve the 'menu in bottom corner' issue with Intel Integrated graphics cards.
+
+Build 1.7.10-10.13.1.1225:
+	Parker Young: Added PlayerWakeUpEvent
+
+Build 1.7.10-10.13.1.1224:
+	Adubbz: Fixed biome weights not working with non multiples of 10
+
+Build 1.7.10-10.13.1.1223:
+	LexManos: Fix vanilla lighting issue and blending issues in achievements gui. Closes #1445
+
+Build 1.7.10-10.13.1.1222:
+	LexManos: MinecraftForge/FML@d00feb58c762b0bbc506d79faf1ce40bc96732e9 Remove debug code that was causing console spam in Forge.
+
+Build 1.7.10-10.13.1.1221:
+	LexManos: Disable by default the Display Stencil bits. Keep FBO bits. Acording to Mumfery and ChickenBones, it should not be nessasary and should solve the 1/4 main menu issue. Use -Dforge.forceDisplayStencil=true to enable old behavior.
+
+Build 1.7.10-10.13.1.1220:
+	jadran.kotnik: Prevent client only commands from bleeding through to the server.
+
+Build 1.7.10-10.13.1.1219:
+	jdroque:
+		Added PlaceEvent and MultiPlaceEvent which fires before placing a block.
+		
+		Before calling "ItemStack.tryPlaceItemInWorld", a recording flag is turned on for
+		setBlock to capture a blocksnapshot for each block that attempts to be placed.
+		
+		If 1 block is captured, a "BlockEvent.PlaceEvent" is fired to notify mods.
+		If 2 or more blocks are captured, a "BlockEvent.PlaceEvent" is fired first with the first block
+		captured followed by a "BlockEvent.MultiPlaceEvent" with all captured blocks. This extra event
+		is required for items that have the ability to place 2 or more blocks such as a BlockBed.
+		
+		If either event is cancelled, the recorded block snapshot(s), item stacksize, and item meta will
+		revert back to the captured snapshot(s).
+		If the events are not cancelled, a notification will be sent to clients and block physics will be updated.
+		
+		What this means for mods is Forge will be able to capture all player block placement automatically and fire
+		a PlaceEvent and/or MultiPlaceEvent.
+		If for whatever reason your mod does not use the standard placement methods then you will need to fire the
+		appropriate placement events in order to notify mods/servers.
+		
+		This commit also includes a new utility class called BlockSnapshot which is serializable. This new class is used in conjunction with
+		both PlaceEvent and MultiPlaceEvent in order to record a snapshot of block space before it is altered. This
+		allows us to restore the block(s) if an event is cancelled. The class also provides the ability to restore a snapshot
+		to any location using the restoreToLocation method. This should be helpful to many mods that are looking to be able
+		to capture block data then restore it to back to any location required.
+
+Build 1.7.10-10.13.1.1217:
 	cpw:
 		GIANT FML UPDATE! Bump forge revision number, and fix patches for ItemStack changes. More to come on this branch I expect.
 		

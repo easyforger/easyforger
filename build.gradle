@@ -20,10 +20,10 @@ apply plugin: 'forge'
 
 version = "0.1"
 group = "com.easyforger" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "dsl-interpreter"
+archivesBaseName = "easyforger"
 
 minecraft {
-    version = "1.7.10-10.13.2.1236"
+    version = "1.7.10-10.13.2.1277"
     runDir = "eclipse"
 }
 
@@ -40,9 +40,11 @@ dependencies {
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+
 }
 
-processResources {
+processResources
+{
     // this will ensure that this task is redone when the versions change.
     inputs.property "version", project.version
     inputs.property "mcversion", project.minecraft.version
