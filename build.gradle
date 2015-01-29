@@ -23,7 +23,7 @@ group = "com.easyforger" // http://maven.apache.org/guides/mini/guide-naming-con
 archivesBaseName = "easyforger"
 
 minecraft {
-    version = "1.7.10-10.13.2.1277"
+    version = "1.7.10-10.13.2.1291"
     runDir = "eclipse"
 }
 
