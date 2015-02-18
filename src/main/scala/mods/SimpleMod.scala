@@ -1,36 +1,10 @@
 package mods
 
-import com.easyforger.DSLMod
-import com.easyforger.creatures.SkeletonBehavior
+import com.easyforger.creatures.{CreaturesSupport, SkeletonBehavior}
 
-object SimpleMod extends DSLMod {
-  import net.minecraft.init.Blocks._
+object SimpleMod extends CreaturesSupport {
   import net.minecraft.init.Items._
-
-  smelting {
-    smelt(gravel to diamond_block(10)) withXp 0.5
-    smelt(dirt to emerald_block)
-    smelt(arrow to flint) withXp 0.1
-    smelt(torch(10) to coal)
-  }
-
-  recipes {
-    recipe(coal + sand to diamond)
-    recipe(coal + sand + red_flower to tnt)
-    recipe(sapling('s') to red_flower(2) withShape
-      """
-        |...
-        |.s.
-        |.s.
-      """.stripMargin)
-    recipe(stick + diamond to diamond_sword withShape
-      """
-        |..d
-        |.d.
-        |s..
-      """.stripMargin)
-  }
-
+  
   creatures {
     creeper(
       common(
