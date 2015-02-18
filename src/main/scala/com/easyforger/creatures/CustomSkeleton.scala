@@ -1,6 +1,5 @@
 package com.easyforger.creatures
 
-import mods.SimpleMod
 import net.minecraft.entity.monster.EntitySkeleton
 import net.minecraft.world.World
 
@@ -8,7 +7,7 @@ case class SkeletonConfig(common: CommonEntityConfig = CommonEntityConfig(),
                           behavior: EntitySkeleton => SkeletonBehavior = _ => new SkeletonBehavior()) extends CreatureConfig
 
 class CustomSkeleton(world: World) extends EntitySkeleton(world) with CommonCustomMonster {
-  val skeleton = SimpleMod.creaturesSeq.find(_.isInstanceOf[SkeletonConfig]).map(_.asInstanceOf[SkeletonConfig]).getOrElse(new SkeletonConfig())
+  val skeleton = VanillaCreatures.skeletonConfig
   val config = skeleton.common
 
   init()
