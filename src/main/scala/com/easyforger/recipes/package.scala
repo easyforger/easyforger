@@ -1,11 +1,14 @@
 package com.easyforger
 
 import net.minecraft.block.Block
+import net.minecraft.enchantment.Enchantment
 import net.minecraft.item.{Item, ItemStack}
 
 package object recipes {
   case class Recipe(source: RichItemStack, result: RichItemStack)
 
+  implicit def toItemStack(item: Item): ItemStack = new ItemStack(item, 1)
+  
   implicit def toRichItemStack(item: Item): RichItemStack = toRichItemStack(new ItemStack(item, 1))
   implicit def toRichItemStack(block: Block): RichItemStack = toRichItemStack(new ItemStack(block, 1))
   implicit def toRichItemStack(itemStack: ItemStack): RichItemStack = RichItemStack(itemStack, itemStack.getDisplayName.toLowerCase.charAt(0))
@@ -27,4 +30,8 @@ package object recipes {
 
   def smelting(smelts: SmeltingRecipe*): Unit = Smelting.smelting(smelts: _*)
   def crafting(craftingRecipes: CraftingRecipe*): Unit = Crafting.crafting(craftingRecipes: _*)
+  def enchanted(itemStack: ItemStack, enchantment: Enchantment, level: Int): ItemStack = {
+    itemStack.addEnchantment(enchantment, level)
+    itemStack
+  }
 }

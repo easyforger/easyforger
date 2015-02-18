@@ -4,6 +4,7 @@ import com.easyforger.recipes._
 import cpw.mods.fml.common.Mod
 import cpw.mods.fml.common.Mod.EventHandler
 import cpw.mods.fml.common.event.FMLPreInitializationEvent
+import net.minecraft.enchantment.Enchantment._
 import net.minecraft.init.Blocks._
 import net.minecraft.init.Items._
 
@@ -22,6 +23,7 @@ object RecipesMod {
     crafting(
       coal + sand to diamond,
       coal + sand + red_flower to tnt,
+      stone_sword + flint to enchanted(stone_sword, sharpness, 1),
       sapling('s') to red_flower(2) withShape
         """
           |...
