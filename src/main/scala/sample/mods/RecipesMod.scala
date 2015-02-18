@@ -1,4 +1,4 @@
-package mods
+package sample.mods
 
 import com.easyforger.recipes._
 import cpw.mods.fml.common.Mod
