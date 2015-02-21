@@ -8,7 +8,7 @@ case class CreeperConfig(common: CommonEntityConfig = CommonEntityConfig(),
                          explosionRadius: Option[Int] = None,
                          powered: Option[Boolean] = None) extends CreatureConfig
 
-class CustomCreeper(world: World) extends EntityCreeper(world) with CommonCustomMonster {1
+class CustomCreeper(world: World) extends EntityCreeper(world) with CommonCustomMonster {
   val creeperConfig = VanillaCreatures.creeperConfig
   val config = creeperConfig.common
   

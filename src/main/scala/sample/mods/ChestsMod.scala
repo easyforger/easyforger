@@ -1,12 +1,10 @@
 package sample.mods
 
 import com.easyforger.base.EasyForger
-import com.easyforger.chests._
 import cpw.mods.fml.common.Mod
 import cpw.mods.fml.common.Mod.EventHandler
 import cpw.mods.fml.common.event.FMLPreInitializationEvent
 import net.minecraft.init.Items._
-import net.minecraftforge.common.ChestGenHooks
 
 @Mod(modid = "easyforger_chests", name = "EasyForger Chests Mod Examples", version = "0.1", modLanguage = "scala")
 object ChestsMod extends EasyForger {
@@ -14,12 +12,12 @@ object ChestsMod extends EasyForger {
   @EventHandler
   def preInit(event: FMLPreInitializationEvent) = {
     removeChestContent(
-      chest = ChestGenHooks.BONUS_CHEST,
+      chest = ChestName.bonusChest,
       item = stick
     )
     
     addChestContent(
-      chest = ChestGenHooks.BONUS_CHEST,
+      chest = ChestName.bonusChest,
       item = diamond_axe,
       minStack = 1,
       maxStack = 2,
@@ -27,7 +25,7 @@ object ChestsMod extends EasyForger {
     )
 
     addChestContent(
-      chest = ChestGenHooks.MINESHAFT_CORRIDOR,
+      chest = ChestName.mineshaftCorridor,
       item = emerald,
       minStack = 3,
       maxStack = 20,

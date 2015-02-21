@@ -1,7 +1,6 @@
 package sample.mods
 
 import com.easyforger.base.EasyForger
-import com.easyforger.dungeons._
 import cpw.mods.fml.common.Mod
 import cpw.mods.fml.common.Mod.EventHandler
 import cpw.mods.fml.common.event.FMLPreInitializationEvent
