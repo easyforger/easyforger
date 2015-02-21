@@ -12,12 +12,10 @@ object DungeonsMod extends EasyForger {
 
   @EventHandler
   def preInit(event: FMLPreInitializationEvent) = {
-    // TODO: to help autocomplete and make it easier to get it write, create a creatures enum that can be
-    // used here and everywhere else?
     dungeonMobs(
-      "Creeper" -> 100,
-      "Zombie" -> 400,
-      "Enderman" -> 50
+      EntityName.Creeper -> 100,
+      EntityName.Zombie -> 400,
+      EntityName.Enderman -> 50
     )
 
     dungeonChest(

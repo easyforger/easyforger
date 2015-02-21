@@ -1,6 +1,7 @@
 package com.easyforger.dungeons
 
 import com.easyforger.chests._
+import com.easyforger.creatures.VanillaCreatures
 import net.minecraft.item.ItemStack
 import net.minecraftforge.common.DungeonHooks
 
@@ -11,18 +12,19 @@ import net.minecraftforge.common.DungeonHooks
  * Zombie   200
  */
 trait VanillaDungeons {
-  self: VanillaChests =>
+  self: VanillaChests with VanillaCreatures =>
 
-  def dungeonMobs(mobMap: (String, Int)*) = VanillaDungeons.mapMobSpawn(mobMap: _*)
+  import EntityName._
+
+  def dungeonMobs(mobMap: (EntityName, Int)*) = mapMobSpawn(mobMap: _*)
 
   def dungeonChest(item: ItemStack, minStack: Int, maxStack: Int, chance: Int): Unit =
     addChestContent(ChestName.dungeonChest, item, minStack, maxStack, chance)
-}
 
-object VanillaDungeons {
-  def mapMobSpawn(mobMap: (String, Int)*) = mobMap.foreach {
-    case (mob, spawnChance) =>
-      DungeonHooks.removeDungeonMob(mob)
-      DungeonHooks.addDungeonMob(mob, spawnChance)
+
+  private def mapMobSpawn(mobMap: (EntityName, Int)*) = mobMap.foreach {
+    case (entityName, spawnChance) =>
+      DungeonHooks.removeDungeonMob(entityName.toString)
+      DungeonHooks.addDungeonMob(entityName.toString, spawnChance)
   }
 }
