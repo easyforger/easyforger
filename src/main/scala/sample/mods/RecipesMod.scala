@@ -1,5 +1,6 @@
 package sample.mods
 
+import com.easyforger.base.EasyForger
 import com.easyforger.recipes._
 import cpw.mods.fml.common.Mod
 import cpw.mods.fml.common.Mod.EventHandler
@@ -9,7 +10,7 @@ import net.minecraft.init.Blocks._
 import net.minecraft.init.Items._
 
 @Mod(modid = "easyforger_recipes", name = "EasyForger Recipes Examples", version = "0.1", modLanguage = "scala")
-object RecipesMod {
+object RecipesMod extends EasyForger {
 
   @EventHandler
   def preInit(event: FMLPreInitializationEvent) = {

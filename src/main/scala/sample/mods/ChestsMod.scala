@@ -1,6 +1,6 @@
 package sample.mods
 
-import com.easyforger.recipes._
+import com.easyforger.base.EasyForger
 import com.easyforger.chests._
 import cpw.mods.fml.common.Mod
 import cpw.mods.fml.common.Mod.EventHandler
@@ -9,7 +9,7 @@ import net.minecraft.init.Items._
 import net.minecraftforge.common.ChestGenHooks
 
 @Mod(modid = "easyforger_chests", name = "EasyForger Chests Mod Examples", version = "0.1", modLanguage = "scala")
-object ChestsMod {
+object ChestsMod extends EasyForger {
 
   @EventHandler
   def preInit(event: FMLPreInitializationEvent) = {

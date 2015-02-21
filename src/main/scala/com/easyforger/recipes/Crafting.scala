@@ -18,7 +18,7 @@ object Crafting {
           craftRecipe.sources.map(_.itemStack).toArray: _*)
 }
 
-case class CraftingRecipe(sources: Set[RichItemStack], shape: Option[String] = None, result: Option[RichItemStack] = None) {
+case class CraftingRecipe(sources: Set[RecipeItemStack], shape: Option[String] = None, result: Option[RecipeItemStack] = None) {
   def +(block: Block) = this.copy(sources = sources + block)
   def +(item: Item) = this.copy(sources = sources + item)
   

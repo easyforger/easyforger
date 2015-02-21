@@ -1,5 +1,6 @@
 package sample.mods
 
+import com.easyforger.base.EasyForger
 import com.easyforger.creatures._
 import cpw.mods.fml.common.Mod
 import cpw.mods.fml.common.Mod.EventHandler
@@ -7,7 +8,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent
 import net.minecraft.init.Items._
 
 @Mod(modid = "easyforger_creatures_simple", name = "EasyForger Vanilla Creatures Replacements", version = "0.1", modLanguage = "scala")
-object SimpleCreaturesMod {
+object SimpleCreaturesMod extends EasyForger {
 
   @EventHandler
   def preInit(event: FMLPreInitializationEvent) = {

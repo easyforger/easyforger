@@ -5,23 +5,20 @@ import net.minecraft.enchantment.Enchantment
 import net.minecraft.item.{Item, ItemStack}
 
 package object recipes {
-  case class Recipe(source: RichItemStack, result: RichItemStack)
-
-  implicit def toItemStack(item: Item): ItemStack = new ItemStack(item, 1)
-  implicit def toItemStack(block: Block): ItemStack = new ItemStack(block, 1)
-
-  implicit def toRichItemStack(item: Item): RichItemStack = toRichItemStack(new ItemStack(item, 1))
-  implicit def toRichItemStack(block: Block): RichItemStack = toRichItemStack(new ItemStack(block, 1))
-  implicit def toRichItemStack(itemStack: ItemStack): RichItemStack = RichItemStack(itemStack, itemStack.getDisplayName.toLowerCase.charAt(0))
+  case class Recipe(source: RecipeItemStack, result: RecipeItemStack)
+  
+  implicit def toRecipeItemStack(item: Item): RecipeItemStack = toRecipeItemStack(new ItemStack(item, 1))
+  implicit def toRecipeItemStack(block: Block): RecipeItemStack = toRecipeItemStack(new ItemStack(block, 1))
+  implicit def toRecipeItemStack(itemStack: ItemStack): RecipeItemStack = RecipeItemStack(itemStack, itemStack.getDisplayName.toLowerCase.charAt(0))
 
   implicit def recipeToSmelting(recipe: Recipe): SmeltingRecipe = SmeltingRecipe(recipe, 1)
   implicit def recipeToCrafting(recipe: Recipe): CraftingRecipe = CraftingRecipe(Set(recipe.source), None, Some(recipe.result))
   
-  case class RichItemStack(itemStack: ItemStack, acronym: Char) {
+  case class RecipeItemStack(itemStack: ItemStack, acronym: Char) {
     def apply(stackSize: Int) = this.copy(itemStack = new ItemStack(itemStack.getItem, stackSize))
     def apply(acr: Char) = this.copy(acronym = acr)
 
-    def to(result: RichItemStack) = Recipe(this, result)
+    def to(result: RecipeItemStack) = Recipe(this, result)
   }
 
   implicit class CraftingSource(item: Item) {
