@@ -13,7 +13,12 @@ object ChestsMod extends EasyForger {
 
   @EventHandler
   def preInit(event: FMLPreInitializationEvent) = {
-    chestContent(
+    removeChestContent(
+      chest = ChestGenHooks.BONUS_CHEST,
+      item = stick
+    )
+    
+    addChestContent(
       chest = ChestGenHooks.BONUS_CHEST,
       item = diamond_axe,
       minStack = 1,
@@ -21,7 +26,7 @@ object ChestsMod extends EasyForger {
       chance = 50
     )
 
-    chestContent(
+    addChestContent(
       chest = ChestGenHooks.MINESHAFT_CORRIDOR,
       item = emerald,
       minStack = 3,
