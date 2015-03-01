@@ -14,7 +14,6 @@ trait ItemCommon extends Item {
   val subItemsNames: List[String]
 
   setUnlocalizedName(s"${modId}_$name")
-  setCreativeTab(CreativeTabs.tabMisc)
 
   if (subItemsNames.isEmpty) setTextureName(modId + ":" + name)
   else setHasSubtypes(true)
@@ -44,4 +43,6 @@ trait ItemCommon extends Item {
       subItemsNames.zipWithIndex.foreach { case (_, i) => typedSubItemsList.add(new ItemStack(this, 1, i))}
     } else
       super.getSubItems(item, tabs, subItems)
+
+  override def setCreativeTab(creativeTab: CreativeTabs): Item = super.setCreativeTab(creativeTab)
 }
