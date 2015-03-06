@@ -27,8 +27,8 @@ Running in "semi" offline mode
 To run EasyForger (MinecraftForge, really) without internet is not possible, but we can minimize access to the network using a nexus repository.
 Start by looking at this tutorial here, to setup nexus: http://www.sonatype.org/nexus/2015/02/17/improved-minecraft-forge-modding-with-nexus/
 
-Then, to run the project, use the init.gradle file inside the nexed folder instead of the original one mentioned in the tutorial. I suggest the following:
+Then, to run the project, use the ```init.gradle``` file inside the ```nexed``` folder instead of the original one mentioned in the tutorial. I suggest the following:
 
-./gradlew setupDecompWorkspace -g nexed
+```./gradlew setupDecompWorkspace -g nexed```
 
-By doing this, you don't need to put init.gradle in you local .gradle, which keeps your environment clean. After that, everything will be cached in nexus - except the files downloaded from minecraftforge.net, which can be cached (I don't know why).
+By doing this, you don't need to put ```init.gradle``` in you local .gradle, which keeps your environment clean. After that, everything will be cached in nexus - except the files downloaded from minecraftforge.net, which can be cached (I don't know why).
