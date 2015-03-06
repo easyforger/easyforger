@@ -110,9 +110,11 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 
-
 .classpath
 .project
 
 build
 eclipse
+
+nexed
+!nexed/init.gradle
