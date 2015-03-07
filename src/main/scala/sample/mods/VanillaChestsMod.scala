@@ -7,7 +7,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent
 import net.minecraft.init.Items._
 
 @Mod(modid = "easyforger_chests", name = "EasyForger Chests Mod Examples", version = "0.1", modLanguage = "scala")
-object ChestsMod extends EasyForger {
+object VanillaChestsMod extends EasyForger {
 
   @EventHandler
   def preInit(event: FMLPreInitializationEvent) = {
