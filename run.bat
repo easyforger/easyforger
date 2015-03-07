@@ -1,0 +1,2 @@
+
+gradlew -g nexed runClient
