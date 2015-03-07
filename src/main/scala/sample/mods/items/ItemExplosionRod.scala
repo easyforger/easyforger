@@ -12,6 +12,6 @@ class ItemExplosionRod extends EasyForgerItem(ItemsMod.modId, "explosionrod") {
     val target = entity.rayTrace(100, 1f)
     entity.worldObj.createExplosion(entity, target.blockX, target.blockY, target.blockZ, 4f, true)
 
-    true
+    false
   }
 }
