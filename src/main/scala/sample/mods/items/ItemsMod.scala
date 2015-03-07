@@ -13,5 +13,6 @@ object ItemsMod {
   def preInit(event: FMLPreInitializationEvent) = {
     GameRegistry.registerItem(new ItemChestKey(), "ChestKey")
     GameRegistry.registerItem(new ItemBanana(), "Banana")
+    GameRegistry.registerItem(new ItemExplosionRod(), "ExplosionRod")
   }
 }
