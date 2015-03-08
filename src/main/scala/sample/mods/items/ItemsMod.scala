@@ -1,5 +1,6 @@
 package sample.mods.items
 
+import com.easyforger.base.EasyForger
 import com.easyforger.recipes._
 import cpw.mods.fml.common.Mod
 import cpw.mods.fml.common.Mod.EventHandler
@@ -8,7 +9,7 @@ import cpw.mods.fml.common.registry.GameRegistry
 import net.minecraft.init.{Blocks, Items}
 
 @Mod(modid = ItemsMod.modId, name = "EasyForger Items Sample Mod", version = "0.1", modLanguage = "scala")
-object ItemsMod {
+object ItemsMod extends EasyForger {
   final val modId = "easyforger_items"
 
   val chestKey = new ItemChestKey()
@@ -23,10 +24,10 @@ object ItemsMod {
 
     // TODO: recipe for colored keys, using corresponding dyes
     crafting(
-      Items.iron_ingot to chestKey withShape
+      Items.iron_ingot + yellowDye to chestKey withShape
         """
           |...
-          |iii
+          |iiy
           |..i
         """.stripMargin,
       Items.stick + Blocks.tnt to explosionRod withShape
