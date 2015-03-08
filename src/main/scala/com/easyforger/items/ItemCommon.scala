@@ -15,6 +15,10 @@ trait ItemCommon extends Item {
 
   setUnlocalizedName(s"${modId}_$name")
 
+  def metaForSubItemName(subItemName: String): Int =
+    if (subItemsNames.isEmpty) 0
+    else subItemsNames.indexOf(subItemName)
+
   if (subItemsNames.isEmpty) setTextureName(modId + ":" + name)
   else setHasSubtypes(true)
 

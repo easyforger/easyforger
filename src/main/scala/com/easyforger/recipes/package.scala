@@ -25,6 +25,7 @@ package object recipes {
     def +(block: Block) = CraftingRecipe(Set(item, block))
     def +(newItem: Item) = CraftingRecipe(Set(item, newItem))
     def +(itemStack: ItemStack) = CraftingRecipe(Set(item, itemStack))
+    def +(recipeItemStack: RecipeItemStack) = CraftingRecipe(Set(item, recipeItemStack))
   }
 
   def smelting(smelts: SmeltingRecipe*): Unit = Smelting.smelting(smelts: _*)

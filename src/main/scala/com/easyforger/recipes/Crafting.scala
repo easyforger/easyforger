@@ -22,6 +22,7 @@ case class CraftingRecipe(sources: Set[RecipeItemStack], shape: Option[String] =
   def +(block: Block) = this.copy(sources = sources + block)
   def +(item: Item) = this.copy(sources = sources + item)
   def +(itemStack: ItemStack) = this.copy(sources = sources + itemStack)
+  def +(recipeItemStack: RecipeItemStack) = this.copy(sources = sources + recipeItemStack)
 
   def to(item: Item) = this.copy(result = Some(item))
   def to(block: Block) = this.copy(result = Some(block))
