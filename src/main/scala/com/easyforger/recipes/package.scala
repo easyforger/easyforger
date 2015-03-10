@@ -21,11 +21,18 @@ package object recipes {
     def to(result: RecipeItemStack) = Recipe(this, result)
   }
 
-  implicit class CraftingSource(item: Item) {
+  implicit class CraftingSourceItem(item: Item) {
     def +(block: Block) = CraftingRecipe(Set(item, block))
     def +(newItem: Item) = CraftingRecipe(Set(item, newItem))
     def +(itemStack: ItemStack) = CraftingRecipe(Set(item, itemStack))
     def +(recipeItemStack: RecipeItemStack) = CraftingRecipe(Set(item, recipeItemStack))
+  }
+
+  implicit class CraftingSourceBlock(block: Block) {
+    def +(newBlock: Block) = CraftingRecipe(Set(block, newBlock))
+    def +(item: Item) = CraftingRecipe(Set(block, item))
+    def +(itemStack: ItemStack) = CraftingRecipe(Set(block, itemStack))
+    def +(recipeItemStack: RecipeItemStack) = CraftingRecipe(Set(block, recipeItemStack))
   }
 
   def smelting(smelts: SmeltingRecipe*): Unit = Smelting.smelting(smelts: _*)
