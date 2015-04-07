@@ -32,3 +32,11 @@ Then, to run the project, use the ```init.gradle``` file inside the ```nexed``` 
 ```./gradlew setupDecompWorkspace -g nexed```
 
 By doing this, you don't need to put ```init.gradle``` in you local ```.gradle```, which keeps your environment clean. After that, everything will be cached in nexus - except the files downloaded from minecraftforge.net, which can't be cached (I don't know why).
+
+
+--
+
+Publishing tasks:
+
+* publishMavenPublicationToMavenLocal (to work with snapshots, locally)
+* bintrayUpload (cut a version and upload it to bintray)
