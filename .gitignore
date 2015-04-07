@@ -31,7 +31,6 @@ project/plugins/project/
 ### Eclipse template
 *.pydevproject
 .metadata
-.gradle
 bin/
 tmp/
 *.tmp
