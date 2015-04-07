@@ -8,6 +8,8 @@ trait VanillaItems {
   implicit def toItemStack(item: Item): ItemStack = new ItemStack(item, 1)
   implicit def toItemStack(block: Block): ItemStack = new ItemStack(block, 1)
 
+  // TODO: use EnumDyeColor when migrating to minecraft 1.8
+
   val blackDye = new ItemStack(dye, 1, 0)
   val redDye = new ItemStack(dye, 1, 1)
   val greenDye = new ItemStack(dye, 1, 2)
