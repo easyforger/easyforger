@@ -24,6 +24,8 @@ object CreaturesHandler {
   def swapMonster(allBiomes: Array[BiomeGenBase], monsterName: String, backgroundEggColour: Int, foregroundEggColour: Int,
                   monsterOldClass: Class[_ <: EntityLiving], monsterNewClass: Class[_ <: EntityLiving]) = {
 
+    // TODO: use registerModEntity as explained in the link below?
+    // http://jabelarminecraft.blogspot.com/p/minecraft-forge-1721710-creating-custom.html
     EntityRegistry.registerGlobalEntityID(monsterNewClass, monsterName, EntityRegistry.findGlobalUniqueEntityId(), backgroundEggColour, foregroundEggColour)
 
     val creatureBiomes = allBiomes.foldLeft(Map.empty[BiomeGenBase, SpawnListEntry]) { (biomes, biome) =>
