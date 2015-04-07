@@ -118,3 +118,5 @@ eclipse
 
 nexed
 !nexed/init.gradle
+
+gradle.properties
