@@ -7,15 +7,19 @@ import net.minecraft.item.{Item, ItemStack}
 object Crafting {
   def crafting(craftingRecipes: CraftingRecipe*) =
     for (craftRecipe <- craftingRecipes)
-      if (craftRecipe.shape.isDefined) {
-        val params = craftRecipe.shape.get.trim.replace('.', ' ').split("\n")
-        val acronyms = craftRecipe.sources.flatMap(richItemStack => Seq(new Character(richItemStack.acronym), richItemStack.itemStack))
-        GameRegistry.addRecipe(craftRecipe.result.get.itemStack, (params ++ acronyms).toArray: _*)
-      }
+      if (craftRecipe.shape.isDefined)
+        GameRegistry.addRecipe(craftRecipe.result.get.itemStack, calcParamsArrays(craftRecipe): _*)
       else
         GameRegistry.addShapelessRecipe(
           craftRecipe.result.map(_.itemStack).getOrElse(throw new IllegalStateException("incomplete recipe!")),
           craftRecipe.sources.map(_.itemStack).toArray: _*)
+
+  def calcParamsArrays(craftRecipe: CraftingRecipe): Array[Object] = {
+    val params = craftRecipe.shape.get.trim.replace('.', ' ').split("\n")
+    val acronyms = craftRecipe.sources.flatMap(richItemStack => Seq(new Character(richItemStack.acronym), richItemStack.itemStack))
+
+    params ++ acronyms
+  }
 }
 
 case class CraftingRecipe(sources: Set[RecipeItemStack], shape: Option[String] = None, result: Option[RecipeItemStack] = None) {
