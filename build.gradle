@@ -13,7 +13,7 @@ buildscript {
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
-        classpath 'com.novoda:bintray-release:0.2.7'
+        classpath 'com.novoda:bintray-release:0.2.10'
     }
 }
 
@@ -62,14 +62,15 @@ idea {
     }
 }
 
-task deobfJar(type: Jar) {
-    from sourceSets.main.output
-    classifier = 'deobf'
+import com.novoda.gradle.release.*
+
+def deobfJarPublish(String publicationName, Project project) {
+    project.task(publicationName + 'DeobfJar', type: Jar) {
+        classifier = 'deobf'
+        from sourceSets.main.output
+    }
 }
 
-tasks.build.dependsOn('deobfJar')
-
-// FIXME: publishing of the deobf artifact is not working
 publish {
     bintrayUser = myBintrayUser
     bintrayKey = myBintrayKey
@@ -78,12 +79,30 @@ publish {
     groupId = project.group
     artifactId = archivesBaseName
 
-    version = project.version
+    publishVersion = project.version
     description = 'A DSL / Framework for developing Minecraft Forge mods.'
 
     website = 'https://easyforger.com'
     issueTracker = 'https://github.com/easyforger/easyforger/issues'
     repository = 'git@github.com:easyforger/easyforger.git'
 
-    dryRun = false
+    dryRun = true
+
+    publishing {
+        publications {
+            deobfPublication(MavenPublication) {
+                groupId project.publish.groupId
+                artifactId project.publish.artifactId
+                publishVersion project.publish.publishVersion
+
+                Artifacts artifacts = new JavaArtifacts()
+                (artifacts.all(it.name, project) + deobfJarPublish(it.name, project)).each {
+                    delegate.artifact it
+                }
+                from artifacts.from(project)
+            }
+        }
+    }
+
+    publications = ['deobfPublication']
 }
