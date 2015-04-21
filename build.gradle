@@ -22,7 +22,7 @@ apply plugin: 'scala'
 apply plugin: 'forge'
 apply plugin: 'bintray-release'
 
-version = "0.1-SNAPSHOT"
+version = "0.2-SNAPSHOT"
 group = "com.easyforger"
 archivesBaseName = "easyforger-core"
 
