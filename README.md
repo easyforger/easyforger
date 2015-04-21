@@ -38,5 +38,6 @@ By doing this, you don't need to put ```init.gradle``` in you local ```.gradle``
 
 Publishing tasks:
 
-* publishMavenPublicationToMavenLocal (to work with snapshots, locally)
 * bintrayUpload (cut a version and upload it to bintray)
+
+To effectively release a version, change dryRun to false in the ```build.gradle``` file.
