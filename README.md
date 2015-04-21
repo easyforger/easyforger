@@ -41,3 +41,8 @@ Publishing tasks:
 * bintrayUpload (cut a version and upload it to bintray)
 
 To effectively release a version, change dryRun to false in the ```build.gradle``` file.
+
+
+--
+
+This library is licensed under the LGPL v3.
