@@ -1,8 +1,8 @@
 package com.easyforger.recipes
 
-import cpw.mods.fml.common.registry.GameRegistry
 import net.minecraft.block.Block
 import net.minecraft.item.{Item, ItemStack}
+import net.minecraftforge.fml.common.registry.GameRegistry
 
 object Crafting {
   def crafting(craftingRecipes: CraftingRecipe*) =

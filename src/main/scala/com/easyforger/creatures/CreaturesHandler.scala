@@ -1,10 +1,10 @@
 package com.easyforger.creatures
 
-import cpw.mods.fml.common.registry.EntityRegistry
 import net.minecraft.entity.monster.{EntityCreeper, EntitySkeleton, EntityZombie}
 import net.minecraft.entity.{EntityLiving, EnumCreatureType}
 import net.minecraft.world.biome.BiomeGenBase
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry
+import net.minecraftforge.fml.common.registry.EntityRegistry
 
 import scala.collection.JavaConverters._
 
@@ -24,18 +24,16 @@ object CreaturesHandler {
   def swapMonster(allBiomes: Array[BiomeGenBase], monsterName: String, backgroundEggColour: Int, foregroundEggColour: Int,
                   monsterOldClass: Class[_ <: EntityLiving], monsterNewClass: Class[_ <: EntityLiving]) = {
 
-    // TODO: use registerModEntity as explained in the link below?
-    // http://jabelarminecraft.blogspot.com/p/minecraft-forge-1721710-creating-custom.html
     EntityRegistry.registerGlobalEntityID(monsterNewClass, monsterName, EntityRegistry.findGlobalUniqueEntityId(), backgroundEggColour, foregroundEggColour)
 
     val creatureBiomes = allBiomes.foldLeft(Map.empty[BiomeGenBase, SpawnListEntry]) { (biomes, biome) =>
-      val entryOpt = biome.getSpawnableList(EnumCreatureType.monster).asScala.find(_.asInstanceOf[SpawnListEntry].entityClass == monsterOldClass)
+      val entryOpt = biome.getSpawnableList(EnumCreatureType.MONSTER).asScala.find(_.asInstanceOf[SpawnListEntry].entityClass == monsterOldClass)
       entryOpt.map(entry => biomes + (biome -> entry.asInstanceOf[SpawnListEntry])).getOrElse(biomes)
     }
 
-    EntityRegistry.removeSpawn(monsterOldClass, EnumCreatureType.monster, creatureBiomes.keySet.toArray: _*)
+    EntityRegistry.removeSpawn(monsterOldClass, EnumCreatureType.MONSTER, creatureBiomes.keySet.toArray: _*)
     creatureBiomes.foreach { case (biome, entry) =>
-      EntityRegistry.addSpawn(monsterNewClass, entry.itemWeight, entry.minGroupCount, entry.maxGroupCount, EnumCreatureType.monster, biome)
+      EntityRegistry.addSpawn(monsterNewClass, entry.itemWeight, entry.minGroupCount, entry.maxGroupCount, EnumCreatureType.MONSTER, biome)
     }
   }
 }
