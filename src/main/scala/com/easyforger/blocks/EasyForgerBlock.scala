@@ -52,7 +52,4 @@ class EasyForgerBlock(modId: String, name: String, material: Material) extends B
     Minecraft.getMinecraft.getRenderItem.getItemModelMesher.register(
       itemBlock, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation)
   }
-
-  // for items / blocks with metadata, the code below is also needed:
-  //   ModelBakery.addVariantName(yourItem, new String[]{"different", "variant", "namesOfModelFiles"});
 }
