@@ -17,6 +17,8 @@ class EasyForgerBlock(modId: String, name: String, material: Material) extends B
   setUnlocalizedName(s"${modId}_$name")
   setCreativeTab(CreativeTabs.tabBlock)
 
+  val defaultMetadata = 0
+
   var dropItem: Option[Item] = None
   override def getItemDropped(state: IBlockState, random: Random, fortune: Int): Item =
     dropItem.getOrElse(super.getItemDropped(state, random, fortune))
@@ -47,9 +49,6 @@ class EasyForgerBlock(modId: String, name: String, material: Material) extends B
     val itemBlock = GameRegistry.findItem(modId, name)
     val itemModelResourceLocation = new ModelResourceLocation(s"$modId:$name", "inventory")
 
-    val DEFAULT_ITEM_SUBTYPE = 0 // não tem enum disso? criar?
-
-    Minecraft.getMinecraft.getRenderItem.getItemModelMesher.register(
-      itemBlock, DEFAULT_ITEM_SUBTYPE, itemModelResourceLocation)
+    Minecraft.getMinecraft.getRenderItem.getItemModelMesher.register(itemBlock, defaultMetadata, itemModelResourceLocation)
   }
 }
