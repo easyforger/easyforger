@@ -2,33 +2,30 @@ package com.easyforger.items
 
 import java.util
 
-import cpw.mods.fml.relauncher.{Side, SideOnly}
-import net.minecraft.client.renderer.texture.IIconRegister
+import net.minecraft.client.Minecraft
+import net.minecraft.client.resources.model.{ModelBakery, ModelResourceLocation}
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.item.{Item, ItemStack}
-import net.minecraft.util.{IIcon, MathHelper}
+import net.minecraft.util.MathHelper
+import net.minecraftforge.fml.common.registry.GameRegistry
+import net.minecraftforge.fml.relauncher.{Side, SideOnly}
 
 trait ItemCommon extends Item {
   val name: String
   val modId: String
   val subItemsNames: List[String]
 
+  val defaultMetadata = 0
+
   setUnlocalizedName(s"${modId}_$name")
+  if (subItemsNames.nonEmpty) setHasSubtypes(true)
 
   def metaForSubItemName(subItemName: String): Int =
     if (subItemsNames.isEmpty) 0
     else subItemsNames.indexOf(subItemName)
 
-  if (subItemsNames.isEmpty) setTextureName(modId + ":" + name)
-  else setHasSubtypes(true)
 
-  @SideOnly(Side.CLIENT)
-  private var icons: Seq[IIcon] = Nil
-
-  @SideOnly(Side.CLIENT)
-  override def registerIcons(iconRegister: IIconRegister): Unit =
-    if (getHasSubtypes) icons = subItemsNames.map(subName => iconRegister.registerIcon(s"$modId:${name}_$subName"))
-    else super.registerIcons(iconRegister)
+  override def getMetadata(damage: Int): Int = damage
 
   override def getUnlocalizedName(itemStack: ItemStack): String =
     if (getHasSubtypes) {
@@ -37,10 +34,7 @@ trait ItemCommon extends Item {
     } else
       super.getUnlocalizedName(itemStack)
 
-  override def getIconFromDamage(damage: Int): IIcon =
-    if (getHasSubtypes) icons(damage)
-    else super.getIconFromDamage(damage)
-
+  @SideOnly(Side.CLIENT)
   override def getSubItems(item: Item, tabs: CreativeTabs, subItems: util.List[_]): Unit =
     if (getHasSubtypes) {
       val typedSubItemsList = subItems.asInstanceOf[util.List[ItemStack]]
@@ -49,4 +43,31 @@ trait ItemCommon extends Item {
       super.getSubItems(item, tabs, subItems)
 
   override def setCreativeTab(creativeTab: CreativeTabs): Item = super.setCreativeTab(creativeTab)
+
+
+  /**
+   * Caution: this method must be called from inside the init() method of your mod!
+   */
+  def register(): Unit = {
+    registerItem()
+    registerItemModel()
+  }
+
+  def registerItem(): Unit = GameRegistry.registerItem(this, name)
+
+  /**
+   * Caution: this method must be called from inside the init() method of your mod!
+   */
+  def registerItemModel(): Unit = if (subItemsNames.isEmpty) {
+    val itemModelResourceLocation = new ModelResourceLocation(s"$modId:$name", "inventory")
+    Minecraft.getMinecraft.getRenderItem.getItemModelMesher.register(this, defaultMetadata, itemModelResourceLocation)
+
+  } else {
+    ModelBakery.addVariantName(this, subItemsNames.map(s"$modId:${name}_" + _): _*)
+    subItemsNames.zipWithIndex.foreach { case (subItemName, metadata) =>
+      val itemModelName = s"$modId:${name}_$subItemName"
+      val itemModelResourceLocation = new ModelResourceLocation(itemModelName, "inventory")
+      Minecraft.getMinecraft.getRenderItem.getItemModelMesher.register(this, metadata, itemModelResourceLocation)
+    }
+  }
 }
