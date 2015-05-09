@@ -4,7 +4,7 @@ import net.minecraft.entity.Entity
 import net.minecraft.item.ItemArmor.ArmorMaterial
 import net.minecraft.item.{ItemArmor, ItemStack}
 
-class EasyForgerItemArmor(val modId: String, material: ArmorMaterial, armorType: ArmorType, val subItemsNames: List[String] = Nil)
+class EFItemArmor(val modId: String, material: ArmorMaterial, armorType: ArmorType, val subItemsNames: List[String] = Nil)
   extends ItemArmor(material, 0, armorType.id) with ItemCommon {
 
   lazy val name = s"${material.name()}_${armorType.name}"

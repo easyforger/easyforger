@@ -5,7 +5,7 @@ import net.minecraft.item.{ItemFood, ItemStack}
 import net.minecraft.potion.PotionEffect
 import net.minecraft.world.World
 
-class EasyForgerItemFood(val modId: String, val name: String, food: Int, saturation: Float, wolfFood: Boolean,
+class EFItemFood(val modId: String, val name: String, food: Int, saturation: Float, wolfFood: Boolean,
                          val subItemsNames: List[String] = Nil)
   extends ItemFood(food, saturation, wolfFood) with ItemCommon {
 
