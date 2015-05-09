@@ -7,9 +7,8 @@ import net.minecraft.item.{ItemArmor, ItemStack}
 class EasyForgerItemArmor(val modId: String, material: ArmorMaterial, armorType: ArmorType, val subItemsNames: List[String] = Nil)
   extends ItemArmor(material, 0, armorType.id) with ItemCommon {
 
-  setUnlocalizedName(s"${modId}_${armorType.name}")
-
   lazy val name = s"${material.name()}_${armorType.name}"
+  setUnlocalizedName(s"${modId}_${armorType.name}")
 
   override def getArmorTexture(stack: ItemStack, entity: Entity, slot: Int, subType: String): String = {
     val texture1 = List(s"${modId}_helmet", s"${modId}_chestplate", s"${modId}_boots")
