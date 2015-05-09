@@ -11,8 +11,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry
 import net.minecraftforge.fml.relauncher.{Side, SideOnly}
 
 trait ItemCommon extends Item {
-  val name: String
   val modId: String
+  val name: String
   val subItemsNames: List[String]
 
   val defaultMetadata = 0
