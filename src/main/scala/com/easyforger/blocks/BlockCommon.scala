@@ -4,7 +4,6 @@ import java.util.Random
 
 import com.easyforger.base.EasyForger
 import net.minecraft.block.Block
-import net.minecraft.block.Block.SoundType
 import net.minecraft.block.state.IBlockState
 import net.minecraft.client.Minecraft
 import net.minecraft.client.resources.model.ModelResourceLocation
@@ -28,10 +27,6 @@ trait BlockCommon extends Block with EasyForger {
   var quantityDropped: Option[Int] = None
   override def quantityDropped(random : Random): Int =
     quantityDropped.getOrElse(super.quantityDropped(random))
-
-  override def setHardness(hardness: Float): Block = super.setHardness(hardness)
-  override def setResistance(resistance: Float): Block = super.setResistance(resistance)
-  override def setStepSound(soundType: SoundType): Block = super.setStepSound(soundType)
 
 
   /**
