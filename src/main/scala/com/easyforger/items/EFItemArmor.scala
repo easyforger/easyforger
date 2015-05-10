@@ -16,7 +16,7 @@ class EFItemArmor(val modId: String, material: ArmorMaterial, armorType: ArmorTy
 
     if (texture1.exists(stack.getItem.getUnlocalizedName.contains(_))) s"$modId:textures/models/armor/${material.name()}_layer_1.png"
     else if (texture2.exists(stack.getItem.getUnlocalizedName.contains(_))) s"$modId:textures/models/armor/${material.name()}_layer_2.png"
-    else null
+    else super.getArmorTexture(stack, entity, slot, subType)
   }
 }
 
@@ -24,18 +24,22 @@ sealed trait ArmorType {
   val name: String
   val id: Int
 }
+
 object Helmet extends ArmorType {
   val name = "helmet"
   val id = 0
 }
+
 object ChestPlate extends ArmorType {
   val name = "chestplate"
   val id = 1
 }
+
 object Leggings extends ArmorType {
   val name = "leggings"
   val id = 2
 }
+
 object Boots extends ArmorType {
   val name = "boots"
   val id = 3
