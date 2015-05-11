@@ -50,6 +50,7 @@ Steps to close a version (personal reminder until it gets automated)
 - commit
 - bintrayupload
 - create github tag for the version
+- close the milestone on github
 - change version config to next snapshot
 - commit
 
