@@ -45,4 +45,14 @@ To effectively release a version, change dryRun to ```false``` in the ```build.g
 
 --
 
+Steps to close a version (personal reminder until it gets automated)
+- change version config to final
+- commit
+- bintrayupload
+- create github tag for the version
+- change version config to next snapshot
+- commit
+
+--
+
 This library is licensed under the LGPL v3.
