@@ -12,9 +12,6 @@ class EFItemFood(val modId: String, val name: String, food: Int, saturation: Flo
   // store the creation function, need a new object every time the potion is going to be applied
   private var extraPotionEffects = List.empty[(() => PotionEffect, Float)]
 
-  override def setPotionEffect(potionId: Int, duration: Int, level: Int, probability: Float): ItemFood =
-    super.setPotionEffect(potionId, duration, level, probability)
-
   def addPotionEffect(potionId: Int, duration: Int, level: Int, probability: Float): Unit = {
     extraPotionEffects = extraPotionEffects :+ (() => new PotionEffect(potionId, duration * 20, level)) -> probability
   }
