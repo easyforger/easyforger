@@ -48,7 +48,7 @@ To effectively release a version, change dryRun to ```false``` in the ```build.g
 Steps to close a version (personal reminder until it gets automated)
 - change version config to final
 - commit
-- bintrayupload
+- bintrayUpload (with dryRun = false)
 - create github tag for the version
 - close the milestone on github
 - change version config to next snapshot
