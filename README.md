@@ -53,6 +53,7 @@ Steps to close a version (personal reminder until it gets automated)
 - close the milestone on github
 - change version config to next snapshot
 - commit
+- send announcements to twiiter, the mailing list and the forums at forum.easyforger.com
 
 --
 
