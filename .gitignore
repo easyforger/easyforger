@@ -1,0 +1,7 @@
+.gradle
+.idea
+build
+eclipse
+
+easyforger.iml
+gradle.properties
