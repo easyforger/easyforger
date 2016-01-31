@@ -1,6 +1,8 @@
 EasyForger
 ==========
 
+[![Join the chat at https://gitter.im/easyforger/easyforger](https://badges.gitter.im/easyforger/easyforger.svg)](https://gitter.im/easyforger/easyforger?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Note: this is still under heavy development and everything is subject to change!
 Also, feedback is very much appreciated. A good place to send them is our mailing list at https://groups.google.com/group/easyforger
 
