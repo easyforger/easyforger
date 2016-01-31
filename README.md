@@ -41,7 +41,7 @@ Publishing tasks:
 * bintrayUpload (cut a version and upload it to bintray)
 
 To effectively release a version, change dryRun to ```false``` in the ```build.gradle``` file.
-
+You also should create a `gradle.properties` file and set your bintray credentials there.
 
 --
 

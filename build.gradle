@@ -73,8 +73,8 @@ def deobfJarPublish(String publicationName, Project project) {
 }
 
 publish {
-    bintrayUser = myBintrayUser
-    bintrayKey = myBintrayKey
+    bintrayUser = project.hasProperty('myBintrayUser') ? myBintrayUser : 'bintray-user'
+    bintrayKey = project.hasProperty('myBintrayKey') ? myBintrayKey : 'bintray-key'
 
     userOrg = 'easyforger'
     groupId = project.group
