@@ -114,6 +114,7 @@ crashlytics-build.properties
 
 build
 eclipse
+run
 
 nexed
 !nexed/init.gradle

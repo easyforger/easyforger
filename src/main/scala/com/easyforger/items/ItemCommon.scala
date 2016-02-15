@@ -35,11 +35,10 @@ trait ItemCommon extends Item {
       super.getUnlocalizedName(itemStack)
 
   @SideOnly(Side.CLIENT)
-  override def getSubItems(item: Item, tabs: CreativeTabs, subItems: util.List[_]): Unit =
-    if (getHasSubtypes) {
-      val typedSubItemsList = subItems.asInstanceOf[util.List[ItemStack]]
-      subItemsNames.zipWithIndex.foreach { case (_, i) => typedSubItemsList.add(new ItemStack(this, 1, i))}
-    } else
+  override def getSubItems(item: Item, tabs: CreativeTabs, subItems: util.List[ItemStack]): Unit =
+    if (getHasSubtypes)
+      subItemsNames.zipWithIndex.foreach { case (_, i) => subItems.add(new ItemStack(this, 1, i)) }
+    else
       super.getSubItems(item, tabs, subItems)
 
   override def setCreativeTab(creativeTab: CreativeTabs): Item = super.setCreativeTab(creativeTab)

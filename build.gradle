@@ -12,15 +12,15 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
-        classpath 'com.novoda:bintray-release:0.2.10'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
+        classpath 'com.novoda:bintray-release:0.3.2'
     }
 }
 
 apply plugin: 'idea'
 apply plugin: 'scala'
-apply plugin: 'forge'
-apply plugin: 'bintray-release'
+apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'com.novoda.bintray-release'
 
 version = "0.4-SNAPSHOT"
 group = "com.easyforger"
@@ -32,9 +32,9 @@ tasks.withType(ScalaCompile) {
 }
 
 minecraft {
-    version = "1.8-11.14.1.1334"
-    runDir = "eclipse"
-    mappings = "snapshot_20141130"
+    version = "1.8.9-11.15.1.1722"
+    runDir = "run"
+    mappings = "stable_20"
 }
 
 processResources
