@@ -12,7 +12,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.0-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
         classpath 'com.novoda:bintray-release:0.3.2'
     }
 }
@@ -32,9 +32,9 @@ tasks.withType(ScalaCompile) {
 }
 
 minecraft {
-    version = "1.8-11.14.4.1563"
+    version = "1.8.9-11.15.1.1722"
     runDir = "run"
-    mappings = "snapshot_20141130"
+    mappings = "stable_20"
 }
 
 processResources
