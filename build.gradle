@@ -12,6 +12,7 @@ buildscript {
         }
     }
     dependencies {
+        classpath 'org.github.ngbinh.scalastyle:gradle-scalastyle-plugin_2.11:0.8.2'
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
         classpath 'com.novoda:bintray-release:0.3.2'
     }
@@ -20,11 +21,21 @@ buildscript {
 apply plugin: 'idea'
 apply plugin: 'scala'
 apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'scalaStyle'
 apply plugin: 'com.novoda.bintray-release'
 
 version = "0.4-SNAPSHOT"
 group = "com.easyforger"
 archivesBaseName = "easyforger-core"
+
+scalaStyle {
+    configLocation = "project/scalastyle_config.xml"
+    includeTestSourceDirectory = true
+    source = "src/main/scala"
+    testSource = "src/test/scala"
+}
+
+compileScala.dependsOn scalaStyle
 
 tasks.withType(ScalaCompile) {
     scalaCompileOptions.useAnt = false
