@@ -47,7 +47,7 @@ trait VanillaCreatures {
   implicit def itemToItemStackOption(i: Item): Option[ItemStack] = Option(new ItemStack(i, 1))
   implicit def entityItemToUnitOption(e: EntityItem): Option[Unit] = Option(())
 }
-  
+
 object VanillaCreatures {
   def creatures(creatures: CreatureConfig*): Unit = {
     creatures.foreach {
@@ -59,7 +59,6 @@ object VanillaCreatures {
     CreaturesHandler.registerModdedVanillaCreatures()
   }
 
-  
   private var _creeperConfig = new CreeperConfig()
   def creeperConfig: CreeperConfig = _creeperConfig
 
