@@ -21,5 +21,5 @@ class CustomCreeper(world: World) extends EntityCreeper(world) with CommonCustom
 
   init()
 
-  override def getPowered = creeperConfig.powered.getOrElse(super.getPowered)
+  override def getPowered: Boolean = creeperConfig.powered.getOrElse(super.getPowered)
 }

@@ -19,5 +19,5 @@ trait CommonCustomMonster extends EntityLiving {
     config.heldItem.foreach(setCurrentItemOrArmor(0, _))
   }
 
-  override def getDropItem = config.dropItem.getOrElse(super.getDropItem)
+  override def getDropItem: Item = config.dropItem.getOrElse(super.getDropItem)
 }

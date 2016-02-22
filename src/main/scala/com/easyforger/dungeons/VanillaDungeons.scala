@@ -20,7 +20,7 @@ trait VanillaDungeons {
 
   import EntityName._
 
-  def dungeonMobs(mobMap: (EntityName, Int)*) = mapMobSpawn(mobMap: _*)
+  def dungeonMobs(mobMap: (EntityName, Int)*): Unit = mapMobSpawn(mobMap: _*)
 
   def dungeonChest(item: ItemStack, minStack: Int, maxStack: Int, chance: Int): Unit =
     addChestContent(ChestName.dungeonChest, item, minStack, maxStack, chance)

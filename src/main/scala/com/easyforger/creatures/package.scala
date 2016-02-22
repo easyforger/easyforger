@@ -5,7 +5,7 @@
 package com.easyforger
 
 package object creatures {
-  def setIntField(clazz: Class[_], obj: AnyRef, fieldName: String, value: Int) = {
+  def setIntField(clazz: Class[_], obj: AnyRef, fieldName: String, value: Int): Unit = {
     val field = clazz.getDeclaredField(fieldName)
     field.setAccessible(true)
     field.setInt(obj, value)

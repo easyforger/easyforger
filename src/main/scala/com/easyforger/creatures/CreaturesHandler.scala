@@ -26,7 +26,7 @@ object CreaturesHandler {
   }
 
   def swapMonster(allBiomes: Array[BiomeGenBase], monsterName: String, backgroundEggColour: Int, foregroundEggColour: Int,
-                  monsterOldClass: Class[_ <: EntityLiving], monsterNewClass: Class[_ <: EntityLiving]) = {
+                  monsterOldClass: Class[_ <: EntityLiving], monsterNewClass: Class[_ <: EntityLiving]): Unit = {
 
     EntityRegistry.registerGlobalEntityID(monsterNewClass, monsterName, EntityRegistry.findGlobalUniqueEntityId(), backgroundEggColour, foregroundEggColour)
 

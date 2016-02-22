@@ -7,11 +7,11 @@ package com.easyforger.recipes
 import net.minecraftforge.fml.common.registry.GameRegistry
 
 object Smelting {
-  def smelting(smelts: SmeltingRecipe*) =
+  def smelting(smelts: SmeltingRecipe*): Unit =
     for (smelt <- smelts)
       GameRegistry.addSmelting(smelt.recipe.source.itemStack, smelt.recipe.result.itemStack, smelt.xp.toFloat)
 }
 
 case class SmeltingRecipe(recipe: Recipe, xp: Double) {
-  def withXp(newXp: Double) = this.copy(xp = newXp)
+  def withXp(newXp: Double): SmeltingRecipe = this.copy(xp = newXp)
 }

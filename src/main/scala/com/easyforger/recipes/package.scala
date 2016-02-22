@@ -19,24 +19,24 @@ package object recipes {
   implicit def recipeToCrafting(recipe: Recipe): CraftingRecipe = CraftingRecipe(Set(recipe.source), None, Some(recipe.result))
   
   case class RecipeItemStack(itemStack: ItemStack, acronym: Char) {
-    def apply(stackSize: Int) = this.copy(itemStack = new ItemStack(itemStack.getItem, stackSize))
-    def apply(acr: Char) = this.copy(acronym = acr)
+    def apply(stackSize: Int): RecipeItemStack = this.copy(itemStack = new ItemStack(itemStack.getItem, stackSize))
+    def apply(acr: Char): RecipeItemStack = this.copy(acronym = acr)
 
-    def to(result: RecipeItemStack) = Recipe(this, result)
+    def to(result: RecipeItemStack): Recipe = Recipe(this, result)
   }
 
   implicit class CraftingSourceItem(item: Item) {
-    def +(block: Block) = CraftingRecipe(Set(item, block))
-    def +(newItem: Item) = CraftingRecipe(Set(item, newItem))
-    def +(itemStack: ItemStack) = CraftingRecipe(Set(item, itemStack))
-    def +(recipeItemStack: RecipeItemStack) = CraftingRecipe(Set(item, recipeItemStack))
+    def +(block: Block): CraftingRecipe = CraftingRecipe(Set(item, block))
+    def +(newItem: Item): CraftingRecipe = CraftingRecipe(Set(item, newItem))
+    def +(itemStack: ItemStack): CraftingRecipe = CraftingRecipe(Set(item, itemStack))
+    def +(recipeItemStack: RecipeItemStack): CraftingRecipe = CraftingRecipe(Set(item, recipeItemStack))
   }
 
   implicit class CraftingSourceBlock(block: Block) {
-    def +(newBlock: Block) = CraftingRecipe(Set(block, newBlock))
-    def +(item: Item) = CraftingRecipe(Set(block, item))
-    def +(itemStack: ItemStack) = CraftingRecipe(Set(block, itemStack))
-    def +(recipeItemStack: RecipeItemStack) = CraftingRecipe(Set(block, recipeItemStack))
+    def +(newBlock: Block): CraftingRecipe = CraftingRecipe(Set(block, newBlock))
+    def +(item: Item): CraftingRecipe = CraftingRecipe(Set(block, item))
+    def +(itemStack: ItemStack): CraftingRecipe = CraftingRecipe(Set(block, itemStack))
+    def +(recipeItemStack: RecipeItemStack): CraftingRecipe = CraftingRecipe(Set(block, recipeItemStack))
   }
 
   def smelting(smelts: SmeltingRecipe*): Unit = Smelting.smelting(smelts: _*)

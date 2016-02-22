@@ -19,8 +19,9 @@ trait VanillaChests {
 
   import ChestName._
 
-  def addChestContent(chest: ChestName, item: ItemStack, minStack: Int, maxStack: Int, chance: Int) =
+  def addChestContent(chest: ChestName, item: ItemStack, minStack: Int, maxStack: Int, chance: Int): Unit =
     ChestGenHooks.addItem(chest.toString, new WeightedRandomChestContent(item, minStack, maxStack, chance))
 
-  def removeChestContent(chest: ChestName, item: ItemStack) = ChestGenHooks.removeItem(chest.toString, item)
+  def removeChestContent(chest: ChestName, item: ItemStack): Unit =
+    ChestGenHooks.removeItem(chest.toString, item)
 }

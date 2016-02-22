@@ -16,7 +16,7 @@ class CustomSkeleton(world: World) extends EntitySkeleton(world) with CommonCust
 
   init()
 
-  override def dropFewItems(recentlyHit: Boolean, lootingLevel: Int) =
+  override def dropFewItems(recentlyHit: Boolean, lootingLevel: Int): Unit =
     skeleton.behavior(this).dropFewItems(recentlyHit, lootingLevel).getOrElse(super.dropFewItems(recentlyHit, lootingLevel))
 }
 

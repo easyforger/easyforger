@@ -22,19 +22,21 @@ trait VanillaCreatures {
     MushroomCow, SnowMan, Ozelot, VillagerGolem, EntityHorse, Villager, EnderCrystal = Value
   }
 
-  def creatures(creatures: CreatureConfig*) = VanillaCreatures.creatures(creatures: _*)
+  def creatures(creatures: CreatureConfig*): Unit = VanillaCreatures.creatures(creatures: _*)
 
-  def common(dropItem: Option[Item] = None, heldItem: Option[ItemStack] = None) = CommonEntityConfig(dropItem, heldItem)
+  def common(dropItem: Option[Item] = None, heldItem: Option[ItemStack] = None): CommonEntityConfig =
+    CommonEntityConfig(dropItem, heldItem)
 
 
   def creeper(common: CommonEntityConfig = CommonEntityConfig(), fuseTime: Option[Int] = None,
-              explosionRadius: Option[Int] = None, powered: Option[Boolean] = None) =
+              explosionRadius: Option[Int] = None, powered: Option[Boolean] = None): CreeperConfig =
     new CreeperConfig(common, fuseTime, explosionRadius, powered)
 
-  def zombie(common: CommonEntityConfig = CommonEntityConfig()) = new ZombieConfig(common)
+  def zombie(common: CommonEntityConfig = CommonEntityConfig()): ZombieConfig =
+    new ZombieConfig(common)
 
   def skeleton(common: CommonEntityConfig = CommonEntityConfig(),
-               behavior: EntitySkeleton => SkeletonBehavior = _ => new SkeletonBehavior()) =
+               behavior: EntitySkeleton => SkeletonBehavior = _ => new SkeletonBehavior()): SkeletonConfig =
     new SkeletonConfig(common, behavior)
 
 
@@ -47,7 +49,7 @@ trait VanillaCreatures {
 }
   
 object VanillaCreatures {
-  def creatures(creatures: CreatureConfig*) = {
+  def creatures(creatures: CreatureConfig*): Unit = {
     creatures.foreach {
       case c: CreeperConfig => _creeperConfig = c
       case c: ZombieConfig => _zombieConfig = c
@@ -59,11 +61,11 @@ object VanillaCreatures {
 
   
   private var _creeperConfig = new CreeperConfig()
-  def creeperConfig = _creeperConfig
+  def creeperConfig: CreeperConfig = _creeperConfig
 
   private var _zombieConfig = new ZombieConfig()
-  def zombieConfig = _zombieConfig
+  def zombieConfig: ZombieConfig = _zombieConfig
   
   private var _skeletonConfig = new SkeletonConfig()
-  def skeletonConfig = _skeletonConfig
+  def skeletonConfig: SkeletonConfig = _skeletonConfig
 }
