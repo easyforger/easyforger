@@ -15,3 +15,8 @@ class CustomZombie(world: World) extends EntityZombie(world) with CommonCustomMo
 
   init()
 }
+
+object CustomZombie {
+  val bgColor = 0x003333
+  val fgColor = 0x337734
+}

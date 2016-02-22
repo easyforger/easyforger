@@ -20,9 +20,9 @@ object CreaturesHandler {
   def registerModdedVanillaCreatures(): Unit = {
     val allBiomes = BiomeGenBase.getBiomeGenArray.filterNot(_ == null)
 
-    swapMonster(allBiomes, "EasyForgerCreeper", 0x66ff99, 0x77ee55, classOf[EntityCreeper], classOf[CustomCreeper])
-    swapMonster(allBiomes, "EasyForgerZombie", 0x003333, 0x337734, classOf[EntityZombie], classOf[CustomZombie])
-    swapMonster(allBiomes, "EasyForgerSkeleton", 0x002266, 0x332266, classOf[EntitySkeleton], classOf[CustomSkeleton])
+    swapMonster(allBiomes, "EasyForgerCreeper", CustomCreeper.bgColor, CustomCreeper.fgColor, classOf[EntityCreeper], classOf[CustomCreeper])
+    swapMonster(allBiomes, "EasyForgerZombie", CustomZombie.bgColor, CustomZombie.fgColor, classOf[EntityZombie], classOf[CustomZombie])
+    swapMonster(allBiomes, "EasyForgerSkeleton", CustomSkeleton.bgColor, CustomSkeleton.fgColor, classOf[EntitySkeleton], classOf[CustomSkeleton])
   }
 
   def swapMonster(allBiomes: Array[BiomeGenBase], monsterName: String, backgroundEggColour: Int, foregroundEggColour: Int,

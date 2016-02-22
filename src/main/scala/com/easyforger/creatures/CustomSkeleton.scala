@@ -20,6 +20,11 @@ class CustomSkeleton(world: World) extends EntitySkeleton(world) with CommonCust
     skeleton.behavior(this).dropFewItems(recentlyHit, lootingLevel).getOrElse(super.dropFewItems(recentlyHit, lootingLevel))
 }
 
+object CustomSkeleton {
+  val bgColor = 0x002266
+  val fgColor = 0x332266
+}
+
 class SkeletonBehavior {
   def dropFewItems(recentlyHit: Boolean, lootingLevel: Int): Option[Unit] = None
 }

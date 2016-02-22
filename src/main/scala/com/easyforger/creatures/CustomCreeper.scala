@@ -23,3 +23,8 @@ class CustomCreeper(world: World) extends EntityCreeper(world) with CommonCustom
 
   override def getPowered: Boolean = creeperConfig.powered.getOrElse(super.getPowered)
 }
+
+object CustomCreeper {
+  val bgColor = 0x66ff99
+  val fgColor = 0x77ee55
+}
