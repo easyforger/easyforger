@@ -17,7 +17,7 @@ trait VanillaChests {
     bonusChest, dungeonChest = Value
   }
 
-  import ChestName._
+  import ChestName.ChestName
 
   def addChestContent(chest: ChestName, item: ItemStack, minStack: Int, maxStack: Int, chance: Int): Unit =
     ChestGenHooks.addItem(chest.toString, new WeightedRandomChestContent(item, minStack, maxStack, chance))

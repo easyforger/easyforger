@@ -10,7 +10,7 @@ import net.minecraft.world.biome.BiomeGenBase
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry
 import net.minecraftforge.fml.common.registry.EntityRegistry
 
-import scala.collection.JavaConverters._
+import scala.collection.JavaConverters.asScalaBufferConverter
 
 object CreaturesHandler {
 

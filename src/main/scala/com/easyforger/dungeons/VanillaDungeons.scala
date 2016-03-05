@@ -4,7 +4,7 @@
  */
 package com.easyforger.dungeons
 
-import com.easyforger.chests._
+import com.easyforger.chests.VanillaChests
 import com.easyforger.creatures.VanillaCreatures
 import net.minecraft.item.ItemStack
 import net.minecraftforge.common.DungeonHooks
@@ -18,8 +18,7 @@ import net.minecraftforge.common.DungeonHooks
 trait VanillaDungeons {
   self: VanillaChests with VanillaCreatures =>
 
-  import EntityName._
-
+  import EntityName.EntityName
   def dungeonMobs(mobMap: (EntityName, Int)*): Unit = mapMobSpawn(mobMap: _*)
 
   def dungeonChest(item: ItemStack, minStack: Int, maxStack: Int, chance: Int): Unit =

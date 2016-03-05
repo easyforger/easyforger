@@ -5,7 +5,7 @@
 package com.easyforger.base
 
 import net.minecraft.block.Block
-import net.minecraft.init.Items._
+import net.minecraft.init.Items.dye
 import net.minecraft.item.{Item, ItemStack}
 
 trait VanillaItems {
