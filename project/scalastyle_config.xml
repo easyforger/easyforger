@@ -15,7 +15,7 @@
 ]]></parameter>
         </parameters>
     </check>
-    <check level="warning" class="org.scalastyle.scalariform.SpacesAfterPlusChecker" enabled="true"></check>
+    <check level="error" class="org.scalastyle.scalariform.SpacesAfterPlusChecker" enabled="true"/>
     <check level="warning" class="org.scalastyle.scalariform.SpacesBeforePlusChecker" enabled="true"></check>
     <check level="warning" class="org.scalastyle.file.FileLineLengthChecker" enabled="true">
         <parameters>
