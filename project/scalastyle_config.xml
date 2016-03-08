@@ -113,7 +113,7 @@
             <parameter name="regex"><![CDATA[println]]></parameter>
         </parameters>
     </check>
-    <check level="warning" class="org.scalastyle.scalariform.DeprecatedJavaChecker" enabled="true"></check>
+    <check level="error" class="org.scalastyle.scalariform.DeprecatedJavaChecker" enabled="true"/>
     <check level="warning" class="org.scalastyle.scalariform.EmptyClassChecker" enabled="true"></check>
     <check level="warning" class="org.scalastyle.scalariform.ClassTypeParameterChecker" enabled="true">
         <parameters>
