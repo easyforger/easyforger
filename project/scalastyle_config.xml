@@ -105,7 +105,7 @@
     <check level="error" class="org.scalastyle.scalariform.PublicMethodsHaveTypeChecker" enabled="true"/>
     <check level="error" class="org.scalastyle.file.NewLineAtEofChecker" enabled="true"/>
     <check level="error" class="org.scalastyle.scalariform.WhileChecker" enabled="true"/>
-    <check level="warning" class="org.scalastyle.scalariform.VarFieldChecker" enabled="false"></check>
+    <check level="warning" class="org.scalastyle.scalariform.VarFieldChecker" enabled="true"/>
     <check level="warning" class="org.scalastyle.scalariform.VarLocalChecker" enabled="false"></check>
     <check level="warning" class="org.scalastyle.scalariform.RedundantIfChecker" enabled="false"></check>
     <check level="warning" class="org.scalastyle.scalariform.TokenChecker" enabled="false">
