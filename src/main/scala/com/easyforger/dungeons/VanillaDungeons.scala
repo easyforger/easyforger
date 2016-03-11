@@ -18,14 +18,12 @@ import net.minecraftforge.common.DungeonHooks
 trait VanillaDungeons {
   self: VanillaChests with VanillaCreatures =>
 
-  import EntityName.EntityName
-  def dungeonMobs(mobMap: (EntityName, Int)*): Unit = mapMobSpawn(mobMap: _*)
+  def dungeonMobs(mobMap: (EntityName.EntityName, Int)*): Unit = mapMobSpawn(mobMap: _*)
 
   def dungeonChest(item: ItemStack, minStack: Int, maxStack: Int, chance: Int): Unit =
     addChestContent(ChestName.dungeonChest, item, minStack, maxStack, chance)
 
-
-  private def mapMobSpawn(mobMap: (EntityName, Int)*) = mobMap.foreach {
+  private def mapMobSpawn(mobMap: (EntityName.EntityName, Int)*) = mobMap.foreach {
     case (entityName, spawnChance) =>
       DungeonHooks.removeDungeonMob(entityName.toString)
       DungeonHooks.addDungeonMob(entityName.toString, spawnChance)
