@@ -75,7 +75,7 @@
         </parameters>
         <customMessage>No double blank lines</customMessage>
     </check>
-    <check level="warning" class="org.scalastyle.scalariform.NumberOfTypesChecker" enabled="true">
+    <check level="error" class="org.scalastyle.scalariform.NumberOfTypesChecker" enabled="true">
         <parameters>
             <parameter name="maxTypes"><![CDATA[30]]></parameter>
         </parameters>
