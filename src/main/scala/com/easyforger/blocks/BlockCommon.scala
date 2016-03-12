@@ -32,7 +32,6 @@ trait BlockCommon extends Block with EasyForger {
   override def quantityDropped(random : Random): Int =
     quantityDropped.getOrElse(super.quantityDropped(random))
 
-
   /**
    * Caution: this method must be called from inside the init() method of your mod!
    */

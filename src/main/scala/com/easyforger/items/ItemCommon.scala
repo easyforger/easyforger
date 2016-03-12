@@ -28,7 +28,6 @@ trait ItemCommon extends Item {
     if (subItemsNames.isEmpty) 0
     else subItemsNames.indexOf(subItemName)
 
-
   override def getMetadata(damage: Int): Int = damage
 
   override def getUnlocalizedName(itemStack: ItemStack): String =
@@ -46,7 +45,6 @@ trait ItemCommon extends Item {
       super.getSubItems(item, tabs, subItems)
 
   override def setCreativeTab(creativeTab: CreativeTabs): Item = super.setCreativeTab(creativeTab)
-
 
   /**
    * Caution: this method must be called from inside the init() method of your mod!
