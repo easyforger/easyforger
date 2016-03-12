@@ -24,9 +24,12 @@ class EFItemFood(val modId: String, val name: String, food: Int, saturation: Flo
   override def onFoodEaten(itemStack: ItemStack, world: World, player: EntityPlayer): Unit = {
     super.onFoodEaten(itemStack, world, player)
 
-    if (!world.isRemote)
+    if (!world.isRemote) {
       for ((effect, prob) <- extraPotionEffects) {
-        if (world.rand.nextFloat() < prob) player.addPotionEffect(effect.apply())
+        if (world.rand.nextFloat() < prob) {
+          player.addPotionEffect(effect.apply())
+        }
       }
+    }
   }
 }

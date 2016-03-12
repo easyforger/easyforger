@@ -87,10 +87,15 @@
     </check>
     <check level="error" class="org.scalastyle.scalariform.UppercaseLChecker" enabled="true"/>
     <check level="error" class="org.scalastyle.scalariform.SimplifyBooleanExpressionChecker" enabled="true"/>
-    <check level="warning" class="org.scalastyle.scalariform.IfBraceChecker" enabled="true">
+    <!--
+        Disabled because it cannot support or check  correctly the style defined in the Scala style guide. References:
+        - http://docs.scala-lang.org/style/control-structures
+        - http://www.scalastyle.org/rules-0.8.0.html#org_scalastyle_scalariform_IfBraceChecker
+    -->
+    <check level="error" class="org.scalastyle.scalariform.IfBraceChecker" enabled="false">
         <parameters>
             <parameter name="singleLineAllowed"><![CDATA[true]]></parameter>
-            <parameter name="doubleLineAllowed"><![CDATA[false]]></parameter>
+            <parameter name="doubleLineAllowed"><![CDATA[true]]></parameter>
         </parameters>
     </check>
     <check level="error" class="org.scalastyle.scalariform.MethodLengthChecker" enabled="true">

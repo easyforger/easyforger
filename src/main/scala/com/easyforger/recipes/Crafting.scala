@@ -10,13 +10,15 @@ import net.minecraftforge.fml.common.registry.GameRegistry
 
 object Crafting {
   def crafting(craftingRecipes: CraftingRecipe*): Unit =
-    for (craftRecipe <- craftingRecipes)
+    for (craftRecipe <- craftingRecipes) {
+      require(craftRecipe.result.isDefined, "incomplete recipe!")
+      val result = craftRecipe.result.get.itemStack
+
       if (craftRecipe.shape.isDefined)
-        GameRegistry.addRecipe(craftRecipe.result.get.itemStack, calcParamsArrays(craftRecipe): _*)
+        GameRegistry.addRecipe(result, calcParamsArrays(craftRecipe): _*)
       else
-        GameRegistry.addShapelessRecipe(
-          craftRecipe.result.map(_.itemStack).getOrElse(throw new IllegalStateException("incomplete recipe!")),
-          craftRecipe.sources.map(_.itemStack).toArray: _*)
+        GameRegistry.addShapelessRecipe(result, craftRecipe.sources.map(_.itemStack).toArray: _*)
+    }
 
   def calcParamsArrays(craftRecipe: CraftingRecipe): Array[Object] = {
     val params = craftRecipe.shape.get.trim.replace('.', ' ').split("\n")

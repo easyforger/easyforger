@@ -34,8 +34,9 @@ trait ItemCommon extends Item {
     if (getHasSubtypes) {
       val metadata = MathHelper.clamp_int(itemStack.getItemDamage, 0, 15)
       s"${super.getUnlocalizedName}_${subItemsNames(metadata)}"
-    } else
+    } else {
       super.getUnlocalizedName(itemStack)
+    }
 
   @SideOnly(Side.CLIENT)
   override def getSubItems(item: Item, tabs: CreativeTabs, subItems: util.List[ItemStack]): Unit =
