@@ -85,7 +85,7 @@
             <parameter name="doubleLineAllowed"><![CDATA[false]]></parameter>
         </parameters>
     </check>
-    <check level="warning" class="org.scalastyle.scalariform.MethodLengthChecker" enabled="true">
+    <check level="error" class="org.scalastyle.scalariform.MethodLengthChecker" enabled="true">
         <parameters>
             <parameter name="maxLength"><![CDATA[50]]></parameter>
         </parameters>
@@ -95,7 +95,7 @@
             <parameter name="regex"><![CDATA[^[a-z][A-Za-z0-9]*$]]></parameter>
         </parameters>
     </check>
-    <check level="warning" class="org.scalastyle.scalariform.NumberOfMethodsInTypeChecker" enabled="true">
+    <check level="error" class="org.scalastyle.scalariform.NumberOfMethodsInTypeChecker" enabled="true">
         <parameters>
             <parameter name="maxMethods"><![CDATA[30]]></parameter>
         </parameters>
