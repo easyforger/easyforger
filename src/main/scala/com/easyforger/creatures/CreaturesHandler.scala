@@ -18,11 +18,11 @@ object CreaturesHandler {
    * This should be called as soon as possible, to avoid the vanilla creatures to be ever used without the modded behavior.
    */
   def registerModdedVanillaCreatures(): Unit = {
-    val allBiomes = BiomeGenBase.getBiomeGenArray.filterNot(_ == null)
+    val availableBiomes = BiomeGenBase.getBiomeGenArray.filterNot(_ == null) // scalastyle:ignore
 
-    swapMonster(allBiomes, "EasyForgerCreeper", CustomCreeper.bgColor, CustomCreeper.fgColor, classOf[EntityCreeper], classOf[CustomCreeper])
-    swapMonster(allBiomes, "EasyForgerZombie", CustomZombie.bgColor, CustomZombie.fgColor, classOf[EntityZombie], classOf[CustomZombie])
-    swapMonster(allBiomes, "EasyForgerSkeleton", CustomSkeleton.bgColor, CustomSkeleton.fgColor, classOf[EntitySkeleton], classOf[CustomSkeleton])
+    swapMonster(availableBiomes, "EasyForgerCreeper", CustomCreeper.bgColor, CustomCreeper.fgColor, classOf[EntityCreeper], classOf[CustomCreeper])
+    swapMonster(availableBiomes, "EasyForgerZombie", CustomZombie.bgColor, CustomZombie.fgColor, classOf[EntityZombie], classOf[CustomZombie])
+    swapMonster(availableBiomes, "EasyForgerSkeleton", CustomSkeleton.bgColor, CustomSkeleton.fgColor, classOf[EntitySkeleton], classOf[CustomSkeleton])
   }
 
   def swapMonster(allBiomes: Array[BiomeGenBase], monsterName: String, backgroundEggColour: Int, foregroundEggColour: Int,
