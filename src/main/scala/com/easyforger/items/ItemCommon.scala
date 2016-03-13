@@ -20,6 +20,7 @@ trait ItemCommon extends Item {
   val subItemsNames: List[String]
 
   val defaultMetadata = 0
+  val inventory = "inventory"
 
   setUnlocalizedName(s"${modId}_$name")
   if (subItemsNames.nonEmpty) setHasSubtypes(true)
@@ -61,14 +62,14 @@ trait ItemCommon extends Item {
    * Caution: this method must be called from inside the init() method of your mod!
    */
   def registerItemModel(): Unit = if (subItemsNames.isEmpty) {
-    val itemModelResourceLocation = new ModelResourceLocation(s"$modId:$name", "inventory")
+    val itemModelResourceLocation = new ModelResourceLocation(s"$modId:$name", inventory)
     Minecraft.getMinecraft.getRenderItem.getItemModelMesher.register(this, defaultMetadata, itemModelResourceLocation)
 
   } else {
     ModelBakery.addVariantName(this, subItemsNames.map(s"$modId:${name}_" + _): _*)
     subItemsNames.zipWithIndex.foreach { case (subItemName, metadata) =>
       val itemModelName = s"$modId:${name}_$subItemName"
-      val itemModelResourceLocation = new ModelResourceLocation(itemModelName, "inventory")
+      val itemModelResourceLocation = new ModelResourceLocation(itemModelName, inventory)
       Minecraft.getMinecraft.getRenderItem.getItemModelMesher.register(this, metadata, itemModelResourceLocation)
     }
   }
