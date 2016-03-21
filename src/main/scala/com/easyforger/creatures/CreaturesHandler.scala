@@ -31,8 +31,8 @@ object CreaturesHandler {
     EntityRegistry.registerGlobalEntityID(monsterNewClass, monsterName, EntityRegistry.findGlobalUniqueEntityId(), backgroundEggColour, foregroundEggColour)
 
     val creatureBiomes = allBiomes.foldLeft(Map.empty[BiomeGenBase, SpawnListEntry]) { (biomes, biome) =>
-      val entryOpt = biome.getSpawnableList(EnumCreatureType.MONSTER).asScala.find(_.asInstanceOf[SpawnListEntry].entityClass == monsterOldClass)
-      entryOpt.map(entry => biomes + (biome -> entry.asInstanceOf[SpawnListEntry])).getOrElse(biomes)
+      val entryOpt = biome.getSpawnableList(EnumCreatureType.MONSTER).asScala.find(_.entityClass == monsterOldClass)
+      entryOpt.map(entry => biomes + (biome -> entry)).getOrElse(biomes)
     }
 
     EntityRegistry.removeSpawn(monsterOldClass, EnumCreatureType.MONSTER, creatureBiomes.keySet.toArray: _*)
