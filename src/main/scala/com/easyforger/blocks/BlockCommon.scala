@@ -24,11 +24,14 @@ trait BlockCommon extends Block with EasyForger {
   setUnlocalizedName(s"${modId}_$name")
   setCreativeTab(CreativeTabs.tabBlock)
 
-  var dropItem: Option[Item] = None
+  // ignoring the 'var' checks below because fixing them would take a redesign of the API - which will
+  // be done a some point in the future
+
+  var dropItem: Option[Item] = None // scalastyle:ignore
   override def getItemDropped(state: IBlockState, random: Random, fortune: Int): Item =
     dropItem.getOrElse(super.getItemDropped(state, random, fortune))
 
-  var quantityDropped: Option[Int] = None
+  var quantityDropped: Option[Int] = None // scalastyle:ignore
   override def quantityDropped(random : Random): Int =
     quantityDropped.getOrElse(super.quantityDropped(random))
 

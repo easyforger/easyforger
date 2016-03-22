@@ -53,16 +53,19 @@ object VanillaCreatures {
       case c: ZombieConfig => _zombieConfig = c
       case c: SkeletonConfig => _skeletonConfig = c
     }
-    
+
     CreaturesHandler.registerModdedVanillaCreatures()
   }
 
-  private var _creeperConfig = new CreeperConfig()
+  // ignoring the 'var' checks below because fixing them would take a redesign of the API - which will
+  // be done a some point in the future
+
+  private var _creeperConfig = new CreeperConfig() // scalastyle:ignore
   def creeperConfig: CreeperConfig = _creeperConfig
 
-  private var _zombieConfig = new ZombieConfig()
+  private var _zombieConfig = new ZombieConfig() // scalastyle:ignore
   def zombieConfig: ZombieConfig = _zombieConfig
-  
-  private var _skeletonConfig = new SkeletonConfig()
+
+  private var _skeletonConfig = new SkeletonConfig() // scalastyle:ignore
   def skeletonConfig: SkeletonConfig = _skeletonConfig
 }
