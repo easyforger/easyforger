@@ -6,29 +6,8 @@ package com.easyforger.recipes
 
 import net.minecraft.block.Block
 import net.minecraft.item.{Item, ItemStack}
-import net.minecraftforge.fml.common.registry.GameRegistry
 
-object Crafting {
-  def crafting(craftingRecipes: CraftingRecipe*): Unit =
-    for (craftRecipe <- craftingRecipes) {
-      require(craftRecipe.result.isDefined, "incomplete recipe!")
-      val result = craftRecipe.result.get.itemStack
-
-      if (craftRecipe.shape.isDefined)
-        GameRegistry.addRecipe(result, calcParamsArrays(craftRecipe): _*)
-      else
-        GameRegistry.addShapelessRecipe(result, craftRecipe.sources.map(_.itemStack).toArray: _*)
-    }
-
-  def calcParamsArrays(craftRecipe: CraftingRecipe): Array[Object] = {
-    val params = craftRecipe.shape.get.trim.replace('.', ' ').split("\n")
-    val acronyms = craftRecipe.sources.flatMap(richItemStack => Seq(new Character(richItemStack.acronym), richItemStack.itemStack))
-
-    params ++ acronyms
-  }
-}
-
-case class CraftingRecipe(sources: Set[RecipeItemStack], shape: Option[String] = None, result: Option[RecipeItemStack] = None) {
+case class CraftingRecipe(sources: Set[RecipeItemStack], shape: Option[String] = None, result: Option[RecipeItemStack] = None) extends RecipeSupport {
   def +(block: Block): CraftingRecipe = this.copy(sources = sources + block)
   def +(item: Item): CraftingRecipe = this.copy(sources = sources + item)
   def +(itemStack: ItemStack): CraftingRecipe = this.copy(sources = sources + itemStack)
