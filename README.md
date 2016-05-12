@@ -59,4 +59,9 @@ Steps to close a version (personal reminder until it gets automated)
 
 --
 
+### Know limitations and awkward behaviours
+
+* When creating shaped recipes, the short for `Items.wheat_seeds` is `s`, not `w`
+
+
 This library is licensed under the LGPL v3.

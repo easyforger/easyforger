@@ -4,15 +4,21 @@
  */
 package com.easyforger
 
-import net.minecraft.item.ItemStack
+import net.minecraft.block.Block
+import net.minecraft.item.{Item, ItemStack}
 
 package object recipes {
-  case class Recipe(source: RecipeItemStack, result: RecipeItemStack)
+  case class Recipe(source: RecipeItemStack, result: ItemStack)
 
   case class RecipeItemStack(itemStack: ItemStack, acronym: Char) {
-    def apply(stackSize: Int): RecipeItemStack = this.copy(itemStack = new ItemStack(itemStack.getItem, stackSize))
     def apply(acr: Char): RecipeItemStack = this.copy(acronym = acr)
 
-    def to(result: RecipeItemStack): Recipe = Recipe(this, result)
+    def to(item: Item): Recipe = Recipe(this, new ItemStack(item))
+    def to(block: Block): Recipe = Recipe(this, new ItemStack(block))
+    def to(result: ItemStack): Recipe = Recipe(this, result)
+
+    // FIXME: this removes an acronym that might have been created, but it is used in a result position, so this is probably not a big deal
+    // still, this kind of thing should not be possible
+    def to(result: RecipeItemStack): Recipe = Recipe(this, result.itemStack)
   }
 }

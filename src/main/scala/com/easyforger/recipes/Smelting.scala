@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry
 object Smelting {
   def smelting(smelts: SmeltingRecipe*): Unit =
     for (smelt <- smelts)
-      GameRegistry.addSmelting(smelt.recipe.source.itemStack, smelt.recipe.result.itemStack, smelt.xp.toFloat)
+      GameRegistry.addSmelting(smelt.recipe.source.itemStack, smelt.recipe.result, smelt.xp.toFloat)
 }
 
 case class SmeltingRecipe(recipe: Recipe, xp: Double) {
