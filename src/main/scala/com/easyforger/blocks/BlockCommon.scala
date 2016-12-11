@@ -10,7 +10,7 @@ import com.easyforger.base.EasyForger
 import net.minecraft.block.Block
 import net.minecraft.block.state.IBlockState
 import net.minecraft.client.Minecraft
-import net.minecraft.client.resources.model.ModelResourceLocation
+import net.minecraft.client.renderer.block.model.ModelResourceLocation
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.item.Item
 import net.minecraftforge.fml.common.registry.GameRegistry
@@ -22,7 +22,7 @@ trait BlockCommon extends Block with EasyForger {
   val defaultMetadata = 0
 
   setUnlocalizedName(s"${modId}_$name")
-  setCreativeTab(CreativeTabs.tabBlock)
+  setCreativeTab(CreativeTabs.BUILDING_BLOCKS)
 
   // ignoring the 'var' checks below because fixing them would take a redesign of the API - which will
   // be done a some point in the future

@@ -6,6 +6,8 @@ EasyForger
 Note: this is still under heavy development and everything is subject to change!
 Also, feedback is very much appreciated. A good place to send them is our mailing list at https://groups.google.com/group/easyforger
 
+For a list of what changes as the releases progresses, have a look at the [Changelog](Changelog.md).
+
 EasyForger is a DSL to help you write MinecraftForge mods for Minecraft (obviously =p)
 
 To run the project, follow these steps:

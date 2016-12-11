@@ -4,9 +4,7 @@
  */
 package com.easyforger.dungeons
 
-import com.easyforger.chests.VanillaChests
 import com.easyforger.creatures.VanillaCreatures
-import net.minecraft.item.ItemStack
 import net.minecraftforge.common.DungeonHooks
 
 /**
@@ -16,12 +14,9 @@ import net.minecraftforge.common.DungeonHooks
  * Zombie   200
  */
 trait VanillaDungeons {
-  self: VanillaChests with VanillaCreatures =>
+  self: VanillaCreatures =>
 
   def dungeonMobs(mobMap: (EntityName.EntityName, Int)*): Unit = mapMobSpawn(mobMap: _*)
-
-  def dungeonChest(item: ItemStack, minStack: Int, maxStack: Int, chance: Int): Unit =
-    addChestContent(ChestName.dungeonChest, item, minStack, maxStack, chance)
 
   private def mapMobSpawn(mobMap: (EntityName.EntityName, Int)*) = mobMap.foreach {
     case (entityName, spawnChance) =>

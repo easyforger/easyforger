@@ -43,20 +43,10 @@ trait RecipeSupport {
       val result = craftRecipe.result.get
 
       if (craftRecipe.shape.isDefined)
-        GameRegistry.addRecipe(result, calcParamsArrays(craftRecipe): _*)
+        GameRegistry.addRecipe(result, RecipeSupport.calcMCParamsArray(craftRecipe): _*)
       else
         GameRegistry.addShapelessRecipe(result, craftRecipe.sources.map(_.itemStack).toArray: _*)
     }
-
-  protected def calcParamsArrays(craftRecipe: CraftingRecipe): Array[Object] = {
-    val params = craftRecipe.shape.get.trim.replace('.', ' ').split("\n")
-
-    // turn into a list to avoid removing duplicated acronyms, which would end up hiding errors
-    val acronyms = craftRecipe.sources.toList
-      .flatMap(richItemStack => Seq(new Character(richItemStack.acronym), richItemStack.itemStack))
-
-    params ++ acronyms
-  }
 
   def enchanted(itemStack: ItemStack, enchantment: Enchantment, level: Int): ItemStack = {
     itemStack.addEnchantment(enchantment, level)
@@ -67,25 +57,37 @@ trait RecipeSupport {
 object RecipeSupport {
   val errorShort = 'E'
   val blockShorts = Map(
-    Blocks.bed -> 'b',
-    Blocks.cake -> 'c',
-    Blocks.brewing_stand -> 'b',
-    Blocks.reeds -> 'r',
-    Blocks.acacia_door -> 'a',
-    Blocks.jungle_door -> 'j',
-    Blocks.oak_door -> 'o',
-    Blocks.dark_oak_door -> 'd',
-    Blocks.birch_door -> 'b',
-    Blocks.spruce_door -> 's'
+    Blocks.BED -> 'b',
+    Blocks.CAKE -> 'c',
+    Blocks.BREWING_STAND -> 'b',
+    Blocks.REEDS -> 'r',
+    Blocks.ACACIA_DOOR -> 'a',
+    Blocks.JUNGLE_DOOR -> 'j',
+    Blocks.OAK_DOOR -> 'o',
+    Blocks.DARK_OAK_DOOR -> 'd',
+    Blocks.BIRCH_DOOR -> 'b',
+    Blocks.SPRUCE_DOOR -> 's'
   )
 
   def shortForItem(item: Item): Char = new ItemStack(item).getDisplayName.toLowerCase.charAt(0)
 
   def shortForSpecialItem(item: Item, meta: Int): Char =
-    if (item == Items.dye)
+    if (item == Items.DYE)
       EnumDyeColor.byMetadata(meta).getName.toLowerCase.charAt(0)
-    else errorShort
+    else
+      errorShort
 
   def shortForBlock(block: Block): Char =
     Try(shortForItem(Item.getItemFromBlock(block))).toOption.getOrElse(blockShorts.getOrElse(block, errorShort))
+
+  def calcMCParamsArray(craftRecipe: CraftingRecipe): Array[Object] = {
+    val params = craftRecipe.shape.get.trim.replace('.', ' ').split("\n")
+
+    // turn into a list to avoid removing duplicated acronyms, which would end up hiding errors
+    val acronyms = craftRecipe.sources.toList
+      .flatMap(richItemStack => Seq(new Character(richItemStack.acronym), richItemStack.itemStack))
+
+    params ++ acronyms
+  }
+
 }
