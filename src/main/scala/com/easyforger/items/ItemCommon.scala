@@ -7,10 +7,11 @@ package com.easyforger.items
 import java.util
 
 import net.minecraft.client.Minecraft
-import net.minecraft.client.resources.model.{ModelBakery, ModelResourceLocation}
+import net.minecraft.client.renderer.block.model.{ModelBakery, ModelResourceLocation}
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.item.{Item, ItemStack}
-import net.minecraft.util.MathHelper
+import net.minecraft.util.ResourceLocation
+import net.minecraft.util.math.MathHelper
 import net.minecraftforge.fml.common.registry.GameRegistry
 import net.minecraftforge.fml.relauncher.{Side, SideOnly}
 
@@ -56,7 +57,10 @@ trait ItemCommon extends Item {
     registerItemModel()
   }
 
-  def registerItem(): Unit = GameRegistry.registerItem(this, name)
+  def registerItem(): Unit = {
+    if (getRegistryName == null) setRegistryName(modId, name) // scalastyle:ignore
+    GameRegistry.register(this)
+  }
 
   /**
    * Caution: this method must be called from inside the init() method of your mod!
@@ -66,7 +70,7 @@ trait ItemCommon extends Item {
     Minecraft.getMinecraft.getRenderItem.getItemModelMesher.register(this, defaultMetadata, itemModelResourceLocation)
 
   } else {
-    ModelBakery.addVariantName(this, subItemsNames.map(s"$modId:${name}_" + _): _*)
+    ModelBakery.registerItemVariants(this, subItemsNames.map(subName => new ResourceLocation(s"$modId:${name}_" + subName)): _*)
     subItemsNames.zipWithIndex.foreach { case (subItemName, metadata) =>
       val itemModelName = s"$modId:${name}_$subItemName"
       val itemModelResourceLocation = new ModelResourceLocation(itemModelName, inventory)

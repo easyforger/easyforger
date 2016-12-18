@@ -5,19 +5,26 @@
 package com.easyforger.creatures
 
 import net.minecraft.entity.EntityLiving
-import net.minecraft.item.{ItemStack, Item}
+import net.minecraft.item.{Item, ItemStack}
+import net.minecraft.util.EnumHand
 
+// TODO: support the off-hand: https://github.com/easyforger/easyforger/issues/63
 case class CommonEntityConfig(dropItem: Option[Item] = None, heldItem: Option[ItemStack] = None)
 
 trait CommonCustomMonster extends EntityLiving {
   val config: CommonEntityConfig
 
   /**
-   * Subclasses should call this method as their constructor's last statement.
-   */
+    * TODO: this is bad because implies "memory-based" programming. Can we do this better?
+    * issue: https://github.com/easyforger/easyforger/issues/64
+    *
+    * Subclasses should call this method as their constructor's last statement.
+    */
   def init() {
-    config.heldItem.foreach(setCurrentItemOrArmor(0, _))
+    config.heldItem.foreach(setHeldItem(EnumHand.MAIN_HAND, _))
   }
 
+  // TODO: This is apparently not working anymore - the new `dropLoot` method seems to require
+  // the usage of the loot table mechanism - this will be fixed by: https://github.com/easyforger/easyforger/issues/73
   override def getDropItem: Item = config.dropItem.getOrElse(super.getDropItem)
 }

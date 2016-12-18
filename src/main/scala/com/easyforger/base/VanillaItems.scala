@@ -5,14 +5,14 @@
 package com.easyforger.base
 
 import net.minecraft.block.Block
-import net.minecraft.init.Items.dye
+import net.minecraft.init.Items
 import net.minecraft.item.{EnumDyeColor, Item, ItemStack}
 
 trait VanillaItems {
   implicit def toItemStack(item: Item): ItemStack = new ItemStack(item, 1)
   implicit def toItemStack(block: Block): ItemStack = new ItemStack(block, 1)
 
-  private def itemStackFor(color: EnumDyeColor): ItemStack = new ItemStack(dye, 1, color.getMetadata)
+  private def itemStackFor(color: EnumDyeColor): ItemStack = new ItemStack(Items.DYE, 1, color.getMetadata)
 
   val blackDye = itemStackFor(EnumDyeColor.BLACK)
   val redDye = itemStackFor(EnumDyeColor.RED)

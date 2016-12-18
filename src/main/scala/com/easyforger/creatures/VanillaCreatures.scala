@@ -4,11 +4,17 @@
  */
 package com.easyforger.creatures
 
+import com.easyforger.base.EasyForger
 import net.minecraft.entity.item.EntityItem
 import net.minecraft.entity.monster.EntitySkeleton
 import net.minecraft.item.{Item, ItemStack}
 
+/**
+  * A trait for allowing vanilla creature to be configured. See the specific implementations for details.
+  * */
 trait CreatureConfig
+
+// TODO: perhaps all mob drops could now be implemented with the loot tables they return ? -> https://github.com/easyforger/easyforger/issues/73
 
 trait VanillaCreatures {
   object EntityName extends Enumeration {
@@ -22,7 +28,8 @@ trait VanillaCreatures {
     MushroomCow, SnowMan, Ozelot, VillagerGolem, EntityHorse, Villager, EnderCrystal = Value
   }
 
-  def creatures(creatures: CreatureConfig*): Unit = VanillaCreatures.creatures(creatures: _*)
+  def creatures(mod: EasyForger, creatures: CreatureConfig*): Unit =
+    VanillaCreatures.creatures(mod, creatures: _*)
 
   def common(dropItem: Option[Item] = None, heldItem: Option[ItemStack] = None): CommonEntityConfig =
     CommonEntityConfig(dropItem, heldItem)
@@ -47,14 +54,14 @@ trait VanillaCreatures {
 }
 
 object VanillaCreatures {
-  def creatures(creatures: CreatureConfig*): Unit = {
+  def creatures(mod: EasyForger, creatures: CreatureConfig*): Unit = {
     creatures.foreach {
       case c: CreeperConfig => _creeperConfig = c
       case c: ZombieConfig => _zombieConfig = c
       case c: SkeletonConfig => _skeletonConfig = c
     }
 
-    CreaturesHandler.registerModdedVanillaCreatures()
+    CreaturesHandler.registerModdedVanillaCreatures(mod)
   }
 
   // ignoring the 'var' checks below because fixing them would take a redesign of the API - which will
