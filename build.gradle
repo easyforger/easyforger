@@ -20,7 +20,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'scalaStyle'
 apply plugin: 'com.novoda.bintray-release'
 
-version = "0.5"
+version = "0.5.1-SNAPSHOT"
 group = "com.easyforger"
 archivesBaseName = "easyforger-core"
 
