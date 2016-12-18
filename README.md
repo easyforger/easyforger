@@ -57,9 +57,9 @@ Steps to close a version (personal reminder until it gets automated)
 - close the milestone on github
 - change version config to next snapshot
 - commit
-- send announcements to twiiter, the mailing list and the forums at forum.easyforger.com
+- send announcements to twitter, the mailing list and the forums at forum.easyforger.com
 - don't forget the do the same for easyforger-samples and easyforger-autotester
-- also, generate the tag on the ef-mod-template and upload the template link on the easyforger.com website
+- generate the tag on the ef-mod-template and upload the template link on the easyforger.com website
 
 --
 
