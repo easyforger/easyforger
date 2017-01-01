@@ -1,8 +1,8 @@
 
 ==================================== Version 0.5.1 ====================================
 
-* Updated forge to 1.10.2-12.18.3.2185
-
+* Updated forge to 1.10.2-12.18.3.2185;
+* Changed `EFItemFood.addPotionEffect` to take a `PotionEffect` instead of individual parameters.
 
 ===================================== Version 0.5 =====================================
 
