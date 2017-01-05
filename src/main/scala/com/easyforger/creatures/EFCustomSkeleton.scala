@@ -10,7 +10,7 @@ import net.minecraft.world.World
 case class SkeletonConfig(common: CommonEntityConfig = CommonEntityConfig(),
                           behavior: EntitySkeleton => SkeletonBehavior = _ => new SkeletonBehavior()) extends CreatureConfig
 
-class CustomSkeleton(world: World) extends EntitySkeleton(world) with CommonCustomMonster {
+class EFCustomSkeleton(world: World) extends EntitySkeleton(world) with CommonCustomMonster {
   val skeleton = VanillaCreatures.skeletonConfig
   val config = skeleton.common
 
@@ -20,7 +20,7 @@ class CustomSkeleton(world: World) extends EntitySkeleton(world) with CommonCust
     skeleton.behavior(this).dropFewItems(recentlyHit, lootingLevel).getOrElse(super.dropFewItems(recentlyHit, lootingLevel))
 }
 
-object CustomSkeleton {
+object EFCustomSkeleton {
   val bgColor = 0x002266
   val fgColor = 0x332266
 }

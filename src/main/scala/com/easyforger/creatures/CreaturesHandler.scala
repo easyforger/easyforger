@@ -27,9 +27,9 @@ object CreaturesHandler {
 
     // TODO: the mob id values below could potential clash with user-created new mobs, if they use the same value, in the same mod
     // this will be fixed as part of: https://github.com/easyforger/easyforger/issues/75
-    swapMonster(mod, biomes, "EasyForgerCreeper", 10101, CustomCreeper.bgColor, CustomCreeper.fgColor, classOf[EntityCreeper], classOf[CustomCreeper])      //scalastyle:ignore
-    swapMonster(mod, biomes, "EasyForgerZombie", 10102, CustomZombie.bgColor, CustomZombie.fgColor, classOf[EntityZombie], classOf[CustomZombie])           //scalastyle:ignore
-    swapMonster(mod, biomes, "EasyForgerSkeleton", 10103, CustomSkeleton.bgColor, CustomSkeleton.fgColor, classOf[EntitySkeleton], classOf[CustomSkeleton]) //scalastyle:ignore
+    swapMonster(mod, biomes, "EasyForgerCreeper", 10101, EFCustomCreeper.bgColor, EFCustomCreeper.fgColor, classOf[EntityCreeper], classOf[EFCustomCreeper])      //scalastyle:ignore
+    swapMonster(mod, biomes, "EasyForgerZombie", 10102, EFCustomZombie.bgColor, EFCustomZombie.fgColor, classOf[EntityZombie], classOf[EFCustomZombie])           //scalastyle:ignore
+    swapMonster(mod, biomes, "EasyForgerSkeleton", 10103, EFCustomSkeleton.bgColor, EFCustomSkeleton.fgColor, classOf[EntitySkeleton], classOf[EFCustomSkeleton]) //scalastyle:ignore
   }
 
   protected def swapMonster(mod: EasyForger, allBiomes: List[Biome], monsterName: String, monsterId: Int, backgroundEggColour: Int, foregroundEggColour: Int,
