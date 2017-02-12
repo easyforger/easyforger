@@ -7,7 +7,7 @@ package com.easyforger.creatures
 import net.minecraft.entity.monster.EntityCreeper
 import net.minecraft.world.World
 
-case class CreeperConfig(common: CommonEntityConfig = CommonEntityConfig(),
+case class CreeperConfig(common: CommonEntityConfig = CommonEntityConfig(None, None, None),
                          fuseTime: Option[Int] = None,
                          explosionRadius: Option[Int] = None,
                          powered: Option[Boolean] = None) extends CreatureConfig

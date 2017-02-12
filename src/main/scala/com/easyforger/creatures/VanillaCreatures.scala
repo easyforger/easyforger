@@ -31,19 +31,19 @@ trait VanillaCreatures {
   def creatures(mod: EasyForger, creatures: CreatureConfig*): Unit =
     VanillaCreatures.creatures(mod, creatures: _*)
 
-  def common(dropItem: Option[Item] = None, heldItem: Option[ItemStack] = None): CommonEntityConfig =
-    CommonEntityConfig(dropItem, heldItem)
+  def common(dropItem: Option[Item] = None, heldItemMainHand: Option[ItemStack] = None, heldItemOffHand: Option[ItemStack] = None): CommonEntityConfig =
+    CommonEntityConfig(dropItem, heldItemMainHand, heldItemOffHand)
 
-  def creeper(common: CommonEntityConfig = CommonEntityConfig(), fuseTime: Option[Int] = None,
+  def creeper(commonConfig: CommonEntityConfig = common(), fuseTime: Option[Int] = None,
               explosionRadius: Option[Int] = None, powered: Option[Boolean] = None): CreeperConfig =
-    new CreeperConfig(common, fuseTime, explosionRadius, powered)
+    new CreeperConfig(commonConfig, fuseTime, explosionRadius, powered)
 
-  def zombie(common: CommonEntityConfig = CommonEntityConfig()): ZombieConfig =
-    new ZombieConfig(common)
+  def zombie(commonConfig: CommonEntityConfig = common()): ZombieConfig =
+    new ZombieConfig(commonConfig)
 
-  def skeleton(common: CommonEntityConfig = CommonEntityConfig(),
+  def skeleton(commonConfig: CommonEntityConfig = common(),
                behavior: EntitySkeleton => SkeletonBehavior = _ => new SkeletonBehavior()): SkeletonConfig =
-    new SkeletonConfig(common, behavior)
+    new SkeletonConfig(commonConfig, behavior)
 
   // methods to hide Some and None from the kids in the optional arguments
   implicit def intToOption(i: Int): Option[Int] = Option(i)

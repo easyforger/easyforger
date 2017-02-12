@@ -8,8 +8,7 @@ import net.minecraft.entity.EntityLiving
 import net.minecraft.item.{Item, ItemStack}
 import net.minecraft.util.EnumHand
 
-// TODO: support the off-hand: https://github.com/easyforger/easyforger/issues/63
-case class CommonEntityConfig(dropItem: Option[Item] = None, heldItem: Option[ItemStack] = None)
+case class CommonEntityConfig(dropItem: Option[Item], heldItemMainHand: Option[ItemStack], heldItemOffHand: Option[ItemStack])
 
 trait CommonCustomMonster extends EntityLiving {
   val config: CommonEntityConfig
@@ -21,7 +20,8 @@ trait CommonCustomMonster extends EntityLiving {
     * Subclasses should call this method as their constructor's last statement.
     */
   def init() {
-    config.heldItem.foreach(setHeldItem(EnumHand.MAIN_HAND, _))
+    config.heldItemMainHand.foreach(setHeldItem(EnumHand.MAIN_HAND, _))
+    config.heldItemOffHand.foreach(setHeldItem(EnumHand.OFF_HAND, _))
   }
 
   // TODO: This is apparently not working anymore - the new `dropLoot` method seems to require
