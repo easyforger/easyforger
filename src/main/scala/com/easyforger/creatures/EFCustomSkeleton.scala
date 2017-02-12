@@ -7,7 +7,7 @@ package com.easyforger.creatures
 import net.minecraft.entity.monster.EntitySkeleton
 import net.minecraft.world.World
 
-case class SkeletonConfig(common: CommonEntityConfig = CommonEntityConfig(),
+case class SkeletonConfig(common: CommonEntityConfig = CommonEntityConfig(None, None, None),
                           behavior: EntitySkeleton => SkeletonBehavior = _ => new SkeletonBehavior()) extends CreatureConfig
 
 class EFCustomSkeleton(world: World) extends EntitySkeleton(world) with CommonCustomMonster {
