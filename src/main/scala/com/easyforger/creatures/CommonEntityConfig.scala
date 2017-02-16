@@ -5,13 +5,18 @@
 package com.easyforger.creatures
 
 import net.minecraft.entity.EntityLiving
-import net.minecraft.item.{Item, ItemStack}
-import net.minecraft.util.EnumHand
+import net.minecraft.item.ItemStack
+import net.minecraft.util.{EnumHand, ResourceLocation}
 
-case class CommonEntityConfig(dropItem: Option[Item], heldItemMainHand: Option[ItemStack], heldItemOffHand: Option[ItemStack])
+case class CommonEntityConfig(heldItemMainHand: Option[ItemStack],
+                              heldItemOffHand: Option[ItemStack],
+                              dropJson: Option[String])
 
 trait CommonCustomMonster extends EntityLiving {
   val config: CommonEntityConfig
+
+  lazy val dropJsonResource: Option[ResourceLocation] =
+    config.dropJson.map(new ResourceLocation(_))
 
   /**
     * TODO: this is bad because implies "memory-based" programming. Can we do this better?
@@ -24,7 +29,6 @@ trait CommonCustomMonster extends EntityLiving {
     config.heldItemOffHand.foreach(setHeldItem(EnumHand.OFF_HAND, _))
   }
 
-  // TODO: This is apparently not working anymore - the new `dropLoot` method seems to require
-  // the usage of the loot table mechanism - this will be fixed by: https://github.com/easyforger/easyforger/issues/73
-  override def getDropItem: Item = config.dropItem.getOrElse(super.getDropItem)
+  override def getLootTable: ResourceLocation =
+    dropJsonResource.getOrElse(super.getLootTable)
 }

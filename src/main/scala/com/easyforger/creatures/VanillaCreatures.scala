@@ -31,8 +31,11 @@ trait VanillaCreatures {
   def creatures(mod: EasyForger, creatures: CreatureConfig*): Unit =
     VanillaCreatures.creatures(mod, creatures: _*)
 
-  def common(dropItem: Option[Item] = None, heldItemMainHand: Option[ItemStack] = None, heldItemOffHand: Option[ItemStack] = None): CommonEntityConfig =
-    CommonEntityConfig(dropItem, heldItemMainHand, heldItemOffHand)
+  def common(heldItemMainHand: Option[ItemStack] = None,
+             heldItemOffHand: Option[ItemStack] = None,
+             dropJson: Option[String] = None): CommonEntityConfig =
+
+    CommonEntityConfig(heldItemMainHand, heldItemOffHand, dropJson)
 
   def creeper(commonConfig: CommonEntityConfig = common(), fuseTime: Option[Int] = None,
               explosionRadius: Option[Int] = None, powered: Option[Boolean] = None): CreeperConfig =
@@ -46,8 +49,10 @@ trait VanillaCreatures {
     new SkeletonConfig(commonConfig, behavior)
 
   // methods to hide Some and None from the kids in the optional arguments
+  implicit def boolToOption(b: Boolean): Option[Boolean] = Option(b)
   implicit def intToOption(i: Int): Option[Int] = Option(i)
-  implicit def booleanToOption(b: Boolean): Option[Boolean] = Option(b)
+  implicit def strToOption(str: String): Option[String] = Option(str)
+
   implicit def itemToOption(i: Item): Option[Item] = Option(i)
   implicit def itemToItemStackOption(i: Item): Option[ItemStack] = Option(new ItemStack(i, 1))
   implicit def entityItemToUnitOption(e: EntityItem): Option[Unit] = Option(())

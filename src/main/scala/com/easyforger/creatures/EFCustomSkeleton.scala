@@ -11,13 +11,10 @@ case class SkeletonConfig(common: CommonEntityConfig = CommonEntityConfig(None, 
                           behavior: EntitySkeleton => SkeletonBehavior = _ => new SkeletonBehavior()) extends CreatureConfig
 
 class EFCustomSkeleton(world: World) extends EntitySkeleton(world) with CommonCustomMonster {
-  val skeleton = VanillaCreatures.skeletonConfig
-  val config = skeleton.common
+  val skeleton: SkeletonConfig = VanillaCreatures.skeletonConfig
+  val config: CommonEntityConfig = skeleton.common
 
   init()
-
-  override def dropFewItems(recentlyHit: Boolean, lootingLevel: Int): Unit =
-    skeleton.behavior(this).dropFewItems(recentlyHit, lootingLevel).getOrElse(super.dropFewItems(recentlyHit, lootingLevel))
 }
 
 object EFCustomSkeleton {
