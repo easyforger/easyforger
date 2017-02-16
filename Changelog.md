@@ -1,10 +1,15 @@
 
 ==================================== Version 0.5.1 ====================================
 
+This version contains lots of small changes that re-add features that were left behind
+when upgrading EasyForge to support MC 1.10. Some of those changes are breaking changes,
+as explained below:
+
 * Updated forge to 1.10.2-12.18.3.2185;
 * Changed `EFItemFood.addPotionEffect` to take a `PotionEffect` instead of individual parameters;
-* Renamed `CustomCreeper`, `CustomSkeleton` and `CustomZombie` to `EFCustomCreeper`, `EFCustomSkeleton` and `EFCustomZombie`.
-* Replaced `common.heldItem` with `common.heldItemMainHand` and `common.heldItemOffHand`
+* Renamed `CustomCreeper`, `CustomSkeleton` and `CustomZombie` to `EFCustomCreeper`, `EFCustomSkeleton` and `EFCustomZombie`;
+* Replaced `common.heldItem` with `common.heldItemMainHand` and `common.heldItemOffHand`;
+* Replaced `common.dropItem` with `common.dropJson`, because dropped items are now setup with a loot table json;
 
 ===================================== Version 0.5 =====================================
 

@@ -13,15 +13,15 @@ case class CreeperConfig(common: CommonEntityConfig = CommonEntityConfig(None, N
                          powered: Option[Boolean] = None) extends CreatureConfig
 
 class EFCustomCreeper(world: World) extends EntityCreeper(world) with CommonCustomMonster {
-  val creeperConfig = VanillaCreatures.creeperConfig
-  val config = creeperConfig.common
+  val creeper: CreeperConfig = VanillaCreatures.creeperConfig
+  val config: CommonEntityConfig = creeper.common
 
-  creeperConfig.fuseTime.foreach(setIntField(classOf[EntityCreeper], this, "fuseTime", _))
-  creeperConfig.explosionRadius.foreach(setIntField(classOf[EntityCreeper], this, "explosionRadius", _))
+  creeper.fuseTime.foreach(setIntField(classOf[EntityCreeper], this, "fuseTime", _))
+  creeper.explosionRadius.foreach(setIntField(classOf[EntityCreeper], this, "explosionRadius", _))
 
   init()
 
-  override def getPowered: Boolean = creeperConfig.powered.getOrElse(super.getPowered)
+  override def getPowered: Boolean = creeper.powered.getOrElse(super.getPowered)
 }
 
 object EFCustomCreeper {
