@@ -12,7 +12,8 @@ import net.minecraft.block.state.IBlockState
 import net.minecraft.client.Minecraft
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
 import net.minecraft.creativetab.CreativeTabs
-import net.minecraft.item.Item
+import net.minecraft.item.{Item, ItemBlock}
+import net.minecraft.util.ResourceLocation
 import net.minecraftforge.fml.common.registry.GameRegistry
 
 trait BlockCommon extends Block with EasyForger {
@@ -39,19 +40,14 @@ trait BlockCommon extends Block with EasyForger {
    * Caution: this method must be called from inside the init() method of your mod!
    */
   def register(): Unit = {
-    registerBlock()
-    registerItemModel()
-  }
+    val resourceLocation = new ResourceLocation(modId, name)
 
-  def registerBlock(): Unit = GameRegistry.registerBlock(this, name)
+    GameRegistry.register(this, resourceLocation)
 
-  /**
-   * Caution: this method must be called from inside the init() method of your mod!
-   */
-  def registerItemModel(): Unit = {
-    val itemBlock = GameRegistry.findItem(modId, name)
-    val itemModelResourceLocation = new ModelResourceLocation(s"$modId:$name", "inventory")
+    val itemBlock = new ItemBlock(this).setRegistryName(this.getRegistryName)
+    GameRegistry.register(itemBlock)
 
+    val itemModelResourceLocation = new ModelResourceLocation(resourceLocation, "inventory")
     Minecraft.getMinecraft.getRenderItem.getItemModelMesher.register(itemBlock, defaultMetadata, itemModelResourceLocation)
   }
 }

@@ -39,9 +39,9 @@ tasks.withType(ScalaCompile) {
 }
 
 minecraft {
-    version = "1.10.2-12.18.3.2185"
+    version = "1.11.2-13.20.0.2255"
     runDir = "run"
-    mappings = "snapshot_20161103"
+    mappings = "snapshot_20170317"
 
     // TODO: check if with this, the build can be simplified a bit ... no more publish deobfs ? or do I need both?
     // probably for the core, this can be fully unobf, and the mods themselves will be obfuscated ?

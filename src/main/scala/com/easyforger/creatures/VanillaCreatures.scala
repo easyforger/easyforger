@@ -44,9 +44,8 @@ trait VanillaCreatures {
   def zombie(commonConfig: CommonEntityConfig = common()): ZombieConfig =
     new ZombieConfig(commonConfig)
 
-  def skeleton(commonConfig: CommonEntityConfig = common(),
-               behavior: EntitySkeleton => SkeletonBehavior = _ => new SkeletonBehavior()): SkeletonConfig =
-    new SkeletonConfig(commonConfig, behavior)
+  def skeleton(commonConfig: CommonEntityConfig = common()): SkeletonConfig =
+    new SkeletonConfig(commonConfig)
 
   // methods to hide Some and None from the kids in the optional arguments
   implicit def boolToOption(b: Boolean): Option[Boolean] = Option(b)

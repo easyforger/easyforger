@@ -13,4 +13,7 @@ trait EasyForger
   extends VanillaItems
   with VanillaDungeons
   with VanillaCreatures
-  with RecipeSupport
+  with RecipeSupport {
+
+  def modId: String
+}

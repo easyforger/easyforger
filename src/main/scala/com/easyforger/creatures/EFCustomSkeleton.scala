@@ -7,8 +7,7 @@ package com.easyforger.creatures
 import net.minecraft.entity.monster.EntitySkeleton
 import net.minecraft.world.World
 
-case class SkeletonConfig(common: CommonEntityConfig = CommonEntityConfig(None, None, None),
-                          behavior: EntitySkeleton => SkeletonBehavior = _ => new SkeletonBehavior()) extends CreatureConfig
+case class SkeletonConfig(common: CommonEntityConfig = CommonEntityConfig(None, None, None)) extends CreatureConfig
 
 class EFCustomSkeleton(world: World) extends EntitySkeleton(world) with CommonCustomMonster {
   val skeleton: SkeletonConfig = VanillaCreatures.skeletonConfig
@@ -20,8 +19,4 @@ class EFCustomSkeleton(world: World) extends EntitySkeleton(world) with CommonCu
 object EFCustomSkeleton {
   val bgColor = 0x002266
   val fgColor = 0x332266
-}
-
-class SkeletonBehavior {
-  def dropFewItems(recentlyHit: Boolean, lootingLevel: Int): Option[Unit] = None
 }

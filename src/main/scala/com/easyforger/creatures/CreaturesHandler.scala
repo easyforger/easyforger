@@ -7,6 +7,7 @@ package com.easyforger.creatures
 import com.easyforger.base.EasyForger
 import net.minecraft.entity.monster.{EntityCreeper, EntitySkeleton, EntityZombie}
 import net.minecraft.entity.{EntityLiving, EnumCreatureType}
+import net.minecraft.util.ResourceLocation
 import net.minecraft.world.biome.Biome
 import net.minecraft.world.biome.Biome.SpawnListEntry
 import net.minecraftforge.fml.common.registry.EntityRegistry
@@ -36,7 +37,8 @@ object CreaturesHandler {
                             monsterOldClass: Class[_ <: EntityLiving], monsterNewClass: Class[_ <: EntityLiving]): Unit = {
 
     EntityRegistry.registerModEntity(
-      monsterNewClass, monsterName, monsterId, mod, trackingRange, updateFrequency, sendVelocityUpdates, backgroundEggColour, foregroundEggColour)
+      new ResourceLocation(mod.modId, monsterName), monsterNewClass, monsterName, monsterId, mod,
+      trackingRange, updateFrequency, sendVelocityUpdates, backgroundEggColour, foregroundEggColour)
 
     val creatureBiomes = allBiomes.foldLeft(Map.empty[Biome, SpawnListEntry]) { (biomes, biome) =>
       val entryOpt = biome.getSpawnableList(EnumCreatureType.MONSTER).asScala.find(_.entityClass == monsterOldClass)
