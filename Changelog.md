@@ -1,4 +1,15 @@
 
+==================================== Version 0.6 ======================================
+
+The focus of this version is to update EasyForger to support MC 1.11. The following are
+the main changes:
+
+* Updated forge to 1.11.2-13.20.0.2255;
+* trait EasyForger now requires a `modId`;
+* Removed SkeletonBehaviour, since it is not necessary anymore, and its design was not
+very sound anyway;
+* ???
+
 ==================================== Version 0.5.1 ====================================
 
 This version contains lots of small changes that re-add features that were left behind

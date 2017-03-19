@@ -5,6 +5,7 @@
 package com.easyforger.dungeons
 
 import com.easyforger.creatures.VanillaCreatures
+import net.minecraft.util.ResourceLocation
 import net.minecraftforge.common.DungeonHooks
 
 /**
@@ -20,7 +21,9 @@ trait VanillaDungeons {
 
   private def mapMobSpawn(mobMap: (EntityName.EntityName, Int)*) = mobMap.foreach {
     case (entityName, spawnChance) =>
-      DungeonHooks.removeDungeonMob(entityName.toString)
-      DungeonHooks.addDungeonMob(entityName.toString, spawnChance)
+      val resource = new ResourceLocation(entityName.toString)
+
+      DungeonHooks.removeDungeonMob(resource)
+      DungeonHooks.addDungeonMob(resource, spawnChance)
   }
 }

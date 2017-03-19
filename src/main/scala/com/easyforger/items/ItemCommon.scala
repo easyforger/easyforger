@@ -10,7 +10,7 @@ import net.minecraft.client.Minecraft
 import net.minecraft.client.renderer.block.model.{ModelBakery, ModelResourceLocation}
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.item.{Item, ItemStack}
-import net.minecraft.util.ResourceLocation
+import net.minecraft.util.{NonNullList, ResourceLocation}
 import net.minecraft.util.math.MathHelper
 import net.minecraftforge.fml.common.registry.GameRegistry
 import net.minecraftforge.fml.relauncher.{Side, SideOnly}
@@ -34,14 +34,14 @@ trait ItemCommon extends Item {
 
   override def getUnlocalizedName(itemStack: ItemStack): String =
     if (getHasSubtypes) {
-      val metadata = MathHelper.clamp_int(itemStack.getItemDamage, 0, 15)
+      val metadata = MathHelper.clamp(itemStack.getItemDamage, 0, 15)
       s"${super.getUnlocalizedName}_${subItemsNames(metadata)}"
     } else {
       super.getUnlocalizedName(itemStack)
     }
 
   @SideOnly(Side.CLIENT)
-  override def getSubItems(item: Item, tabs: CreativeTabs, subItems: util.List[ItemStack]): Unit =
+  override def getSubItems(item: Item, tabs: CreativeTabs, subItems: NonNullList[ItemStack]): Unit =
     if (getHasSubtypes)
       subItemsNames.zipWithIndex.foreach { case (_, i) => subItems.add(new ItemStack(this, 1, i)) }
     else
