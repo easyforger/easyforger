@@ -9,21 +9,20 @@ import net.minecraft.util.ResourceLocation
 import net.minecraftforge.common.DungeonHooks
 
 /**
- * According to Forge, the default dungeon possibilities are:
- * Spider   100
- * Skeleton 100
- * Zombie   200
- */
+  * See forge's DungeonHooks for the default probability levels.
+  */
 trait VanillaDungeons {
   self: VanillaCreatures =>
 
-  def dungeonMobs(mobMap: (EntityName.EntityName, Int)*): Unit = mapMobSpawn(mobMap: _*)
+  def dungeonMobs(mobMap: (EntityName.EntityName, Int)*): Unit =
+    mapMobSpawn(mobMap: _*)
 
-  private def mapMobSpawn(mobMap: (EntityName.EntityName, Int)*) = mobMap.foreach {
-    case (entityName, spawnChance) =>
-      val resource = new ResourceLocation(entityName.toString)
+  private def mapMobSpawn(mobMap: (EntityName.EntityName, Int)*) =
+    mobMap.foreach {
+      case (entityName, spawnChance) =>
+        val resource = new ResourceLocation(entityName.toString)
 
-      DungeonHooks.removeDungeonMob(resource)
-      DungeonHooks.addDungeonMob(resource, spawnChance)
-  }
+        DungeonHooks.removeDungeonMob(resource)
+        DungeonHooks.addDungeonMob(resource, spawnChance)
+    }
 }

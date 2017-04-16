@@ -39,7 +39,7 @@ tasks.withType(ScalaCompile) {
 }
 
 minecraft {
-    version = "1.11.2-13.20.0.2255"
+    version = "1.11.2-13.20.0.2282"
     runDir = "run"
     mappings = "snapshot_20170317"
 
