@@ -10,8 +10,6 @@ import net.minecraft.init.{Blocks, Items}
 import net.minecraft.item.{EnumDyeColor, Item, ItemStack}
 import net.minecraftforge.fml.common.registry.GameRegistry
 
-import scala.util.Try
-
 trait RecipeSupport {
   implicit def toRecipeItemStack(item: Item): RecipeItemStack = RecipeItemStack(new ItemStack(item, 1), RecipeSupport.shortForItem(item))
   implicit def toRecipeItemStack(block: Block): RecipeItemStack = RecipeItemStack(new ItemStack(block, 1), RecipeSupport.shortForBlock(block))
@@ -69,7 +67,8 @@ object RecipeSupport {
     Blocks.SPRUCE_DOOR -> 's'
   )
 
-  def shortForItem(item: Item): Char = new ItemStack(item).getDisplayName.toLowerCase.charAt(0)
+  def shortForItem(item: Item): Char =
+    new ItemStack(item).getDisplayName.toLowerCase.charAt(0)
 
   def shortForSpecialItem(item: Item, meta: Int): Char =
     if (item == Items.DYE)
@@ -78,7 +77,10 @@ object RecipeSupport {
       errorShort
 
   def shortForBlock(block: Block): Char =
-    Try(shortForItem(Item.getItemFromBlock(block))).toOption.getOrElse(blockShorts.getOrElse(block, errorShort))
+    Item.getItemFromBlock(block) match {
+      case Items.AIR  => blockShorts.getOrElse(block, errorShort)
+      case item: Any  => shortForItem(item)
+    }
 
   def calcMCParamsArray(craftRecipe: CraftingRecipe): Array[Object] = {
     val params = craftRecipe.shape.get.trim.replace('.', ' ').split("\n")
@@ -89,5 +91,4 @@ object RecipeSupport {
 
     params ++ acronyms
   }
-
 }

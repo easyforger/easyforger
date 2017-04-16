@@ -4,6 +4,7 @@
  */
 package com.easyforger.base
 
+import com.easyforger.chests.VanillaChests
 import com.easyforger.creatures.VanillaCreatures
 import com.easyforger.dungeons.VanillaDungeons
 import com.easyforger.recipes.RecipeSupport
@@ -13,6 +14,7 @@ trait EasyForger
   extends VanillaItems
   with VanillaDungeons
   with VanillaCreatures
+  with VanillaChests
   with RecipeSupport {
 
   def modId: String
