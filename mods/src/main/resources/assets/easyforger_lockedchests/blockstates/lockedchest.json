@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=east": { "model": "easyforger_lockedchests:lockedchest" },
+    "facing=west": { "model": "easyforger_lockedchests:lockedchest" },
+    "facing=north": { "model": "easyforger_lockedchests:lockedchest" },
+    "facing=south": { "model": "easyforger_lockedchests:lockedchest" }
+  }
+}

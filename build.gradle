@@ -15,66 +15,72 @@ buildscript {
     }
 }
 
-apply plugin: 'idea'
-apply plugin: 'scala'
-apply plugin: 'net.minecraftforge.gradle.forge'
-apply plugin: 'scalaStyle'
+allprojects {
+    apply plugin: 'idea'
+    apply plugin: 'scala'
+    apply plugin: 'net.minecraftforge.gradle.forge'
+    apply plugin: 'scalaStyle'
+
+    version = "0.6-SNAPSHOT"             // TODO: append/prepend the minecraft version
+
+    scalaStyle {
+        configLocation = "project/scalastyle_config.xml"
+        includeTestSourceDirectory = true
+        source = "src/main/scala"
+        testSource = "src/test/scala"
+    }
+
+    compileScala.dependsOn scalaStyle
+
+    tasks.withType(ScalaCompile) {
+        scalaCompileOptions.useAnt = false
+        scalaCompileOptions.additionalParameters = ["-language:implicitConversions"]
+    }
+
+    idea {
+        module {
+            inheritOutputDirs = true
+        }
+    }
+
+    minecraft {
+        version = "1.11.2-13.20.1.2506"
+        runDir = "run"
+        mappings = "snapshot_20170317"
+
+        // TODO: check if with this, the build can be simplified a bit ... no more publish deobfs ? or do I need both?
+        // probably for the core, this can be fully unobf, and the mods themselves will be obfuscated ?
+        // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+        // issue: https://github.com/easyforger/easyforger/issues/41
+    }
+
+    processResources {
+        // this will ensure that this task is redone when the versions change.
+        inputs.property "version", project.version
+        inputs.property "mcversion", project.minecraft.version
+
+        // replace stuff in mcmod.info, nothing else
+        from(sourceSets.main.resources.srcDirs) {
+            include 'mcmod.info'
+
+            // replace version and mcversion
+            expand 'version': project.version, 'mcversion': project.minecraft.version
+        }
+
+        // copy everything else, thats not the mcmod.info
+        from(sourceSets.main.resources.srcDirs) {
+            exclude 'mcmod.info'
+        }
+    }
+}
+
 apply plugin: 'com.novoda.bintray-release'
 
-version = "0.6-SNAPSHOT"
 group = "com.easyforger"
-archivesBaseName = "easyforger-core"
+archivesBaseName = "easyforger-core" // TODO: rename to simply `easyforger`
 
-scalaStyle {
-    configLocation = "project/scalastyle_config.xml"
-    includeTestSourceDirectory = true
-    source = "src/main/scala"
-    testSource = "src/test/scala"
-}
 
-compileScala.dependsOn scalaStyle
-
-tasks.withType(ScalaCompile) {
-    scalaCompileOptions.useAnt = false
-    scalaCompileOptions.additionalParameters = ["-language:implicitConversions"]
-}
-
-minecraft {
-    version = "1.11.2-13.20.1.2506"
-    runDir = "run"
-    mappings = "snapshot_20170317"
-
-    // TODO: check if with this, the build can be simplified a bit ... no more publish deobfs ? or do I need both?
-    // probably for the core, this can be fully unobf, and the mods themselves will be obfuscated ?
-    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
-    // issue: https://github.com/easyforger/easyforger/issues/41
-}
-
-processResources
-{
-    // this will ensure that this task is redone when the versions change.
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
-
-    // replace stuff in mcmod.info, nothing else
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-                
-        // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version
-    }
-        
-    // copy everything else, thats not the mcmod.info
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
-    }
-}
-
-idea {
-    module {
-        inheritOutputDirs = true
-    }
-}
+// lib release related stuff
 
 import com.novoda.gradle.release.*
 

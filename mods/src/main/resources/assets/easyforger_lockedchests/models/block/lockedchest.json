@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "easyforger_lockedchests:blocks/lockedchest",
+    "up": "easyforger_lockedchests:blocks/lockedchest",
+    "north": "easyforger_lockedchests:blocks/lockedchest",
+    "east": "easyforger_lockedchests:blocks/lockedchest",
+    "south": "easyforger_lockedchests:blocks/lockedchest",
+    "west": "easyforger_lockedchests:blocks/lockedchest",
+    "particle": "blocks/lapis_block"
+  }
+}

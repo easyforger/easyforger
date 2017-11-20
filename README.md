@@ -63,9 +63,15 @@ Steps to close a version (personal reminder until it gets automated)
 
 --
 
+
 ### Know limitations and awkward behaviours
 
 * When creating shaped recipes, the short for `Items.wheat_seeds` is `s`, not `w`
 
 
 This library is licensed under the LGPL v3.
+
+
+### Sample mods
+
+Please have a look in the _mods_ sub project to find a few sample mods developed using easyforger.

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "easyforger_blocks:blocks/clothblock",
+    "up": "easyforger_blocks:blocks/clothblock",
+    "north": "easyforger_blocks:blocks/clothblock",
+    "east": "easyforger_blocks:blocks/clothblock",
+    "south": "easyforger_blocks:blocks/clothblock",
+    "west": "easyforger_blocks:blocks/clothblock",
+    "particle": "blocks/lapis_block"
+  }
+}
