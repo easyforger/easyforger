@@ -24,7 +24,9 @@ install:
 #  TODO: uncomment after migrating to latest forge
 #  - ./gradlew ciWriteBuildNumber
 script:
-  - travis_wait ./gradlew build -x createExe -S
+  - travis_wait ./gradlew build -S
+#  TODO: uncomment after migrating to latest forge
+#  - travis_wait ./gradlew build -x createExe -S
   - ./gradlew -p projects/Forge test -S -i
 
 notifications:
