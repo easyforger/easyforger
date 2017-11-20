@@ -21,7 +21,7 @@ allprojects {
     apply plugin: 'net.minecraftforge.gradle.forge'
     apply plugin: 'scalaStyle'
 
-    version = "0.6-SNAPSHOT"             // TODO: append/prepend the minecraft version -> https://github.com/easyforger/easyforger/issues/92
+    version = "0.6-1.11.2"
 
     scalaStyle {
         configLocation = "project/scalastyle_config.xml"
@@ -44,7 +44,7 @@ allprojects {
     }
 
     minecraft {
-        version = "1.11.2-13.20.1.2506"
+        version = "1.11.2-13.20.1.2530"
         runDir = "run"
         mappings = "snapshot_20170317"
 
