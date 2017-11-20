@@ -21,7 +21,7 @@ allprojects {
     apply plugin: 'net.minecraftforge.gradle.forge'
     apply plugin: 'scalaStyle'
 
-    version = "0.6-SNAPSHOT"             // TODO: append/prepend the minecraft version
+    version = "0.6-SNAPSHOT"             // TODO: append/prepend the minecraft version -> https://github.com/easyforger/easyforger/issues/92
 
     scalaStyle {
         configLocation = "project/scalastyle_config.xml"
