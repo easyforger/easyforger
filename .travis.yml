@@ -16,7 +16,7 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
-    - $TRAVIS_BUILD_DIR/build/localCache/Forge/
+    - $TRAVIS_BUILD_DIR/build/localCache/easyforger/
 
 before_install: chmod +x gradlew
 install:
@@ -27,7 +27,8 @@ script:
   - travis_wait ./gradlew build -S
 #  TODO: uncomment after migrating to latest forge
 #  - travis_wait ./gradlew build -x createExe -S
-  - ./gradlew -p projects/Forge test -S -i
+#  TODO: add a proper test task when the test project is merged back into core
+#  - ./gradlew -p projects/Forge test -S -i
 
 notifications:
   email: false
