@@ -1,0 +1,8 @@
+
+dependencies {
+    compile project(':')
+
+    compile 'org.specs2:specs2-core_2.11:4.0.1'
+    compile 'org.specs2:specs2-mock_2.11:4.0.1'
+    compile 'org.specs2:specs2-html_2.11:4.0.1'
+}
