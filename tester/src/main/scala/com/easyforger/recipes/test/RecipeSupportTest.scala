@@ -11,7 +11,7 @@ import net.minecraft.item.Item
 import utest._ // scalastyle:ignore
 
 object RecipeSupportTest {
-  import com.easyforger.autotester.uTestRunnerMod._ // scalastyle:ignore
+  import com.easyforger.tester.uTestRunnerMod._ // scalastyle:ignore
 
   val tests = Tests {
     "RecipeSupport.shortForItemStack" - {

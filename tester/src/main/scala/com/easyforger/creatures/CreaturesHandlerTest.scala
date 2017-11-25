@@ -4,7 +4,7 @@
  */
 package com.easyforger.creatures
 
-import com.easyforger.autotester.uTestRunnerMod
+import com.easyforger.tester.uTestRunnerMod
 import net.minecraft.entity.monster.{EntityCreeper, EntitySkeleton, EntityZombie}
 import net.minecraft.entity.{EntityLiving, EnumCreatureType}
 import net.minecraft.world.biome.Biome
