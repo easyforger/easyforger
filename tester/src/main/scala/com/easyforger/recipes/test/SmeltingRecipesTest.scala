@@ -10,7 +10,7 @@ import net.minecraft.item.crafting.FurnaceRecipes
 import utest._ // scalastyle:ignore
 
 object SmeltingRecipesTest {
-  import com.easyforger.autotester.uTestRunnerMod._ // scalastyle:ignore
+  import com.easyforger.tester.uTestRunnerMod._ // scalastyle:ignore
 
   val tests = Tests {
     "creating smelting recipes" - {

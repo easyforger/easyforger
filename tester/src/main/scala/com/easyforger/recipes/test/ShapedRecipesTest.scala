@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack
 import utest._ // scalastyle:ignore
 
 object ShapedRecipesTest {
-  import com.easyforger.autotester.uTestRunnerMod._ // scalastyle:ignore
+  import com.easyforger.tester.uTestRunnerMod._ // scalastyle:ignore
 
   val tests = Tests {
     "dsl shaped recipe" - {

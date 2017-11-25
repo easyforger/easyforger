@@ -13,7 +13,7 @@ import scala.collection.JavaConverters.asScalaBufferConverter
 import utest._ // scalastyle:ignore
 
 object RegisterRecipesTest {
-  import com.easyforger.autotester.uTestRunnerMod._ // scalastyle:ignore
+  import com.easyforger.tester.uTestRunnerMod._ // scalastyle:ignore
 
   val tests = Tests {
     "a recipe" - {
