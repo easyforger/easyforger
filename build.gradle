@@ -72,8 +72,17 @@ allprojects {
             exclude 'mcmod.info'
         }
     }
+
+    task updateVersionFile {
+        def versionFile = file("${project.rootProject.sourceSets.main.scala.srcDirs[0]}/com/easyforger/util/Version.scala")
+        def contents = file("${project.rootDir}/project/Version.scala").text
+
+        versionFile.write(contents.replace("{version}", project.version.toString()))
+    }
+    build.dependsOn updateVersionFile
 }
 
+// release stuff
 apply plugin: 'com.novoda.bintray-release'
 
 group = "com.easyforger"

@@ -5,12 +5,13 @@
 package com.easyforger.samples.misc
 
 import com.easyforger.base.EasyForger
+import com.easyforger.util.Version
 import net.minecraft.init.Items
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 
-@Mod(modid = CreaturesMod.modId, name = "EasyForger Vanilla Creatures Replacements", version = "0.5.1", modLanguage = "scala")
+@Mod(modid = CreaturesMod.modId, name = "EasyForger Vanilla Creatures Replacements", version = Version.version, modLanguage = "scala")
 object CreaturesMod extends EasyForger {
   final val modId = "easyforger_creatures"
 

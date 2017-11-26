@@ -8,6 +8,7 @@ import com.easyforger.base.{EasyForger, LootTableLoadEventReplacerTest}
 import com.easyforger.creatures.CreaturesHandlerTest
 import com.easyforger.items.EFItemArmorTest
 import com.easyforger.recipes.test.{RecipeSupportTest, RegisterRecipesTest, ShapedRecipesTest, SmeltingRecipesTest}
+import com.easyforger.util.Version
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
@@ -15,7 +16,7 @@ import utest.TestRunner
 
 import scala.util.control.NonFatal
 
-@Mod(modid = uTestRunnerMod.modId, name = "EasyForger Integration Tester", version = "0.6", modLanguage = "scala")
+@Mod(modid = uTestRunnerMod.modId, name = "EasyForger Integration Tester", version = Version.version, modLanguage = "scala")
 object uTestRunnerMod extends EasyForger {
   final val modId = "easyforger-integration-tester"
 

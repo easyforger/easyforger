@@ -5,11 +5,12 @@
 package com.easyforger.samples.misc
 
 import com.easyforger.base.EasyForger
+import com.easyforger.util.Version
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 
-@Mod(modid = DungeonsMod.modId, name = "EasyForger Dungeons Mod", version = "0.6", modLanguage = "scala")
+@Mod(modid = DungeonsMod.modId, name = "EasyForger Dungeons Mod", version = Version.version, modLanguage = "scala")
 object DungeonsMod extends EasyForger {
   final val modId = "easyforger_dungeons"
 

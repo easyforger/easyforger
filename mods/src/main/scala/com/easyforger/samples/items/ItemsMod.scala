@@ -5,13 +5,14 @@
 package com.easyforger.samples.items
 
 import com.easyforger.base.EasyForger
+import com.easyforger.util.Version
 import net.minecraft.init.{Blocks, Items}
 import net.minecraft.item.ItemStack
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 
-@Mod(modid = ItemsMod.modId, name = "EasyForger Items Sample Mod", version = "0.5", modLanguage = "scala")
+@Mod(modid = ItemsMod.modId, name = "EasyForger Items Sample Mod", version = Version.version, modLanguage = "scala")
 object ItemsMod extends EasyForger {
   final val modId = "easyforger_items"
 

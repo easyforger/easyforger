@@ -5,12 +5,13 @@
 package com.easyforger.samples.misc
 
 import com.easyforger.base.EasyForger
+import com.easyforger.util.Version
 import net.minecraft.init.{Blocks, Enchantments, Items}
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 
-@Mod(modid = RecipesMod.modId, name = "EasyForger Recipes Examples", version = "0.5", modLanguage = "scala")
+@Mod(modid = RecipesMod.modId, name = "EasyForger Recipes Examples", version = Version.version, modLanguage = "scala")
 object RecipesMod extends EasyForger {
   final val modId = "easyforger_recipes"
 
