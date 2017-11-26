@@ -5,6 +5,7 @@
 package com.easyforger.samples.lavasuit
 
 import com.easyforger.base.EasyForger
+import com.easyforger.util.Version
 import net.minecraft.init.{Items, SoundEvents}
 import net.minecraft.inventory.EntityEquipmentSlot
 import net.minecraftforge.common.util.EnumHelper
@@ -12,7 +13,7 @@ import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 
-@Mod(modid = LavaSuitMod.modId, name = "EasyForger Armor LavaSuit Mod", version = "0.5", modLanguage = "scala")
+@Mod(modid = LavaSuitMod.modId, name = "EasyForger Armor LavaSuit Mod", version = Version.version, modLanguage = "scala")
 object LavaSuitMod extends EasyForger {
   final val modId = "easyforger_lavasuit"
   val materialName = "lavasuit"

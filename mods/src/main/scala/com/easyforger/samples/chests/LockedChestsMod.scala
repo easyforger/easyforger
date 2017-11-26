@@ -4,12 +4,13 @@
  */
 package com.easyforger.samples.chests
 
+import com.easyforger.util.Version
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 import net.minecraftforge.fml.common.registry.GameRegistry
 
-@Mod(modid = LockedChestsMod.modId, name = "EasyForger Locked Chests Mod", version = "0.5", modLanguage = "scala")
+@Mod(modid = LockedChestsMod.modId, name = "EasyForger Locked Chests Mod", version = Version.version, modLanguage = "scala")
 object LockedChestsMod {
   final val modId = "easyforger_lockedchests"
 
