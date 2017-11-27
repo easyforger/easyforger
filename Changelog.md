@@ -1,5 +1,5 @@
 
-==================================== Version 0.6 ======================================
+================================ Version 0.6-1.11.2 ==================================
 
 The focus of this version is to update EasyForger to support MC 1.11. The following are
 the main changes:
@@ -8,7 +8,11 @@ the main changes:
 * trait EasyForger now requires a `modId`;
 * Removed SkeletonBehaviour, since it is not necessary anymore, and its design was not
 very sound anyway;
-* ???
+* Changed version to include the supported MC version;
+* Sample mods and integration test projects were merge into core as submodules;
+* Added basic travis CI setup (still missing properly running the tests)
+* Sample mods and integration test runner now derives their versions from easyforger core's
+version.
 
 ==================================== Version 0.5.1 ====================================
 
