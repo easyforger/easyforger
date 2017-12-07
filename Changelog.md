@@ -10,9 +10,10 @@ the main changes:
 very sound anyway;
 * Changed version to include the supported MC version;
 * Sample mods and integration test projects were merge into core as submodules;
-* Added basic travis CI setup (still missing properly running the tests)
+* Added basic travis CI setup (still missing properly running the tests);
 * Sample mods and integration test runner now derives their versions from easyforger core's
-version.
+version;
+* Release process automated (we should have more releases now ;).
 
 ==================================== Version 0.5.1 ====================================
 

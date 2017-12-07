@@ -21,7 +21,7 @@ allprojects {
     apply plugin: 'net.minecraftforge.gradle.forge'
     apply plugin: 'scalaStyle'
 
-    version = "0.6-1.11.2"
+    version = "0.6-1.11.2-SNAPSHOT"
 
     scalaStyle {
         configLocation = "project/scalastyle_config.xml"
@@ -115,7 +115,7 @@ publish {
     issueTracker = 'https://github.com/easyforger/easyforger/issues'
     repository = 'git@github.com:easyforger/easyforger.git'
 
-    dryRun = true
+    dryRun = false
 
     publishing {
         publications {
