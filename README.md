@@ -24,32 +24,7 @@ For detailed information have a look at the Minecraft Forge documentation here: 
 
 Also, please keep in mind that EasyForger uses Scala, so you should have your IDE's Scala plugin installed.
 
-
 --
-
-Publishing tasks:
-
-* bintrayUpload (cut a version and upload it to bintray)
-
-To effectively release a version, change dryRun to ```false``` in the ```build.gradle``` file.
-You also should create a `gradle.properties` file and set your bintray credentials there.
-
---
-
-Steps to close a version (personal reminder until it gets automated)
-- change version config to final
-- commit
-- bintrayUpload (with dryRun = false)
-- create github tag for the version (draft a new release)
-- close the milestone on github
-- change version config to next snapshot
-- commit
-- send announcements to twitter, the mailing list and the forums at forum.easyforger.com
-- don't forget the do the same for easyforger-samples and easyforger-autotester
-- generate the tag on the ef-mod-template and upload the template link on the easyforger.com website
-
---
-
 
 ### Know limitations and awkward behaviours
 
