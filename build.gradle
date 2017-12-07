@@ -21,7 +21,7 @@ allprojects {
     apply plugin: 'net.minecraftforge.gradle.forge'
     apply plugin: 'scalaStyle'
 
-    version = "0.6-1.11.2-SNAPSHOT"
+    version = "0.6-1.11.2"
 
     scalaStyle {
         configLocation = "project/scalastyle_config.xml"
