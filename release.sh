@@ -57,10 +57,14 @@ release() {
     sed -i "s/$CURR_VERSION/$RELEASE_VERSION/" build.gradle
 
     echo "Switch to a release work branch"
-    git co -b release-$RELEASE_VERSION
+    BRANCH_NAME=release-$RELEASE_VERSION
+    git co -b $BRANCH_NAME
+    git push --set-upstream origin $BRANCH_NAME
 
     echo "Commit the new version"
     git add build.gradle
+    ./gradlew compileScala
+    git add src/main/scala/com/easyforger/util/Version.scala
     git commit -m "Update version to release"
 
     echo "Generate and upload artifacts to bintray"
@@ -84,6 +88,8 @@ release() {
 
     echo "Commit the new version"
     git add build.gradle
+   ./gradlew compileScala
+    git add src/main/scala/com/easyforger/util/Version.scala
     git commit -m "Update version to the next dev version"
 
     echo "Push all the changes to github"
