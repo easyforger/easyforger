@@ -1,4 +1,12 @@
 
+=============================== Version 0.6.1-1.11.2 =================================
+
+Minor fixes and documentation improvements:
+
+* Added a step by step documentation on how to setup the development environment;
+* Added a Travis CI build badge to the Readme;
+* ??? 
+
 ================================ Version 0.6-1.11.2 ==================================
 
 The focus of this version is to update EasyForger to support MC 1.11. The following are
