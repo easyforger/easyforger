@@ -67,6 +67,8 @@ IntelliJ IDEA
 The recommended tool for developing mods with _EasyForger_ is _IntelliJ IDEA_, due to its good _gradle_ and _scala_ support.
 So lets setup our demo mod to be executable from within IDEA.
 
+_Note:_ We assume you have IDEA's Scala plugin installed. If not, please install it before continuing.
+
 The first thing you have to do is to import the project inside IDEA. For that, launch IDEA and click the _Open ..._ option
 to open a new project. Find your mod folder and click ok. The folder icon will be the _gradle logo_, because _IDEA_ will
 recognize the mod as a _gradle_ project.
