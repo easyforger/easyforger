@@ -16,13 +16,13 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent
 object ItemsMod extends EasyForger {
   final val modId = "easyforger_items"
 
-  val chestKey = new ItemChestKey()
-  val banana = new ItemBanana()
-  val explosionRod = new ItemExplosionRod()
-  val venomSword = new ItemVenomSword()
-  val quickPick = new ItemQuickPickaxe()
-  val quickSpade = new ItemQuickSpade()
-  val heavyAxe = new ItemHeavyAxe()
+  val chestKey = new ItemChestKey(modId)
+  val banana = new ItemBanana(modId)
+  val explosionRod = new ItemExplosionRod(modId)
+  val venomSword = new ItemVenomSword(modId)
+  val quickPick = new ItemQuickPickaxe(modId)
+  val quickSpade = new ItemQuickSpade(modId)
+  val heavyAxe = new ItemHeavyAxe(modId)
 
   @EventHandler
   def init(event: FMLInitializationEvent): Unit = {

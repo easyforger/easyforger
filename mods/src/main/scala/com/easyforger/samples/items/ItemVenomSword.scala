@@ -11,7 +11,7 @@ import net.minecraft.item.Item.ToolMaterial
 import net.minecraft.item.ItemStack
 import net.minecraft.potion.PotionEffect
 
-class ItemVenomSword extends EFItemSword(ItemsMod.modId, "venomsword", ToolMaterial.IRON) {
+class ItemVenomSword(modId: String) extends EFItemSword(modId, "venomsword", ToolMaterial.IRON) {
   val poisonDuration = 3 * 20
   val poisonLevel = 1
 

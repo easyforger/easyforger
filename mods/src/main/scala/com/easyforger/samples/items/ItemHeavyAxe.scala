@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 
-class ItemHeavyAxe extends EFItemAxe(ItemsMod.modId, "heavyaxe", ToolMaterial.IRON) {
+class ItemHeavyAxe(modId: String) extends EFItemAxe(modId, "heavyaxe", ToolMaterial.IRON) {
   override def getStrVsBlock(stack: ItemStack, state: IBlockState): Float = super.getStrVsBlock(stack, state) / 2
 
   override def onBlockDestroyed(stack: ItemStack, worldIn: World, blockIn: IBlockState, pos: BlockPos, playerIn: EntityLivingBase): Boolean = {
