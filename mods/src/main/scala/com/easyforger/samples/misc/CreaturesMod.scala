@@ -17,7 +17,7 @@ object CreaturesMod extends EasyForger {
 
   @EventHandler
   def preInit(event: FMLPreInitializationEvent): Unit = {
-    creatures( this,
+    creatures(
       creeper(
         common(
           heldItemMainHand = Items.DIAMOND_SWORD,
