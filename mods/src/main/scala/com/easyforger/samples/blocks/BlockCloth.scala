@@ -9,7 +9,7 @@ import net.minecraft.block.SoundType
 import net.minecraft.block.material.Material
 import net.minecraft.init.Items
 
-class BlockCloth extends EFBlock(BlocksMod.modId, "clothblock", Material.CLOTH) {
+class BlockCloth(modId: String) extends EFBlock(modId, "clothblock", Material.CLOTH) {
   setHardness(0.5f)
   setResistance(1.0f)
   setSoundType(SoundType.WOOD)

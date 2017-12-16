@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent
 object BlocksMod extends EasyForger {
   final val modId = "easyforger_blocks"
 
-  val cloth = new BlockCloth()
+  val cloth = new BlockCloth(modId)
 
   @EventHandler
   def init(event: FMLInitializationEvent): Unit = {
