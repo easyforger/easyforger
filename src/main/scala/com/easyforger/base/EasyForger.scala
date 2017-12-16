@@ -18,4 +18,6 @@ trait EasyForger
   with RecipeSupport {
 
   def modId: String
+
+  implicit val self: EasyForger = this
 }

@@ -28,7 +28,7 @@ trait VanillaCreatures {
     MushroomCow, SnowMan, Ozelot, VillagerGolem, EntityHorse, Villager, EnderCrystal = Value
   }
 
-  def creatures(mod: EasyForger, creatures: CreatureConfig*): Unit =
+  def creatures(creatures: CreatureConfig*)(implicit mod: EasyForger): Unit =
     VanillaCreatures.creatures(mod, creatures: _*)
 
   def common(heldItemMainHand: Option[ItemStack] = None,
