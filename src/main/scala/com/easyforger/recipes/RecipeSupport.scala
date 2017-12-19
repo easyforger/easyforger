@@ -83,7 +83,9 @@ object RecipeSupport {
     }
 
   def calcMCParamsArray(craftRecipe: CraftingRecipe): Array[Object] = {
-    val params = craftRecipe.shape.get.trim.replace('.', ' ').split("\n")
+    val params = craftRecipe.shape
+      .map(_.trim.replace(" ", "").replace('.', ' ').split("\n"))
+      .getOrElse(Array.empty)
 
     // turn into a list to avoid removing duplicated acronyms, which would end up hiding errors
     val acronyms = craftRecipe.sources.toList
