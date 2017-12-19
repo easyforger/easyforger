@@ -23,7 +23,7 @@ object ShapedRecipesTest {
           """.stripMargin
 
         val params = RecipeSupport.calcMCParamsArray(recipe)
-        assertParam(params(0), "   ")
+        assertParam(params(0), "   ") // scalastyle:ignore
         assertParam(params(1), "lll")
         assertParam(params(2), "i i")
         assertParam(params(3), 'l')
@@ -67,6 +67,23 @@ object ShapedRecipesTest {
         assertSameStackAs(params(4).asInstanceOf[ItemStack], new ItemStack(Items.IRON_INGOT))
         assertParam(params(5), 'r')
         assertSameStackAs(params(6).asInstanceOf[ItemStack], redDye)
+      }
+
+      "ignore leading and trailing spaces" - {
+        val recipe = Items.SIGN to Items.APPLE withShape
+          """
+            | s.s
+            | .s.
+            | ...
+          """.stripMargin
+
+        val params = RecipeSupport.calcMCParamsArray(recipe)
+
+        assertParam(params(0), "s s")
+        assertParam(params(1), " s ")
+        assertParam(params(2), "   ")
+        assertParam(params(3), 's')
+        assertSameStackAs(params(4).asInstanceOf[ItemStack], new ItemStack(Items.SIGN))
       }
     }
   }

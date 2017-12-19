@@ -59,9 +59,9 @@ object ItemsMod extends EasyForger {
         """.stripMargin,
       Items.STICK + Blocks.TNT to explosionRod withShape
         """
-          |..t
-          |.s.
-          |s..
+          | ..t
+          | .s.
+          | s..
         """.stripMargin,
       Items.IRON_SWORD + Items.POISONOUS_POTATO to venomSword,
       Items.IRON_PICKAXE + Items.DIAMOND to quickPick,
