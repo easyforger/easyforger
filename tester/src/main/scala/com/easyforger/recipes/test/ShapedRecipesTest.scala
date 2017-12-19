@@ -23,12 +23,12 @@ object ShapedRecipesTest {
           """.stripMargin
 
         val params = RecipeSupport.calcMCParamsArray(recipe)
-        assert(params(0) == "   ")
-        assert(params(1) == "lll")
-        assert(params(2) == "i i")
-        assert(params(3) == 'l')
+        assertParam(params(0), "   ")
+        assertParam(params(1), "lll")
+        assertParam(params(2), "i i")
+        assertParam(params(3), 'l')
         assertSameStackAs(params(4).asInstanceOf[ItemStack], new ItemStack(Items.LEATHER))
-        assert(params(5) == 'i')
+        assertParam(params(5), 'i')
         assertSameStackAs(params(6).asInstanceOf[ItemStack], new ItemStack(Items.IRON_INGOT))
       }
 
@@ -41,12 +41,12 @@ object ShapedRecipesTest {
           """.stripMargin
 
         val params = RecipeSupport.calcMCParamsArray(recipe)
-        assert(params(0) == " c ")
-        assert(params(1) == " d ") // scalastyle:ignore
-        assert(params(2) == " d ")
-        assert(params(3) == 'd')
+        assertParam(params(0), " c ")
+        assertParam(params(1), " d ") // scalastyle:ignore
+        assertParam(params(2), " d ")
+        assertParam(params(3), 'd')
         assertSameStackAs(params(4).asInstanceOf[ItemStack], new ItemStack(Items.DIAMOND))
-        assert(params(5) == 'c')
+        assertParam(params(5), 'c')
         assertSameStackAs(params(6).asInstanceOf[ItemStack], new ItemStack(Items.CARROT))
       }
 
@@ -60,16 +60,19 @@ object ShapedRecipesTest {
 
         val params = RecipeSupport.calcMCParamsArray(recipe)
 
-        assert(params(0) == " i ") // scalastyle:ignore
-        assert(params(1) == " i ")
-        assert(params(2) == " r ")
-        assert(params(3) == 'i')
+        assertParam(params(0), " i ") // scalastyle:ignore
+        assertParam(params(1), " i ")
+        assertParam(params(2), " r ")
+        assertParam(params(3), 'i')
         assertSameStackAs(params(4).asInstanceOf[ItemStack], new ItemStack(Items.IRON_INGOT))
-        assert(params(5) == 'r')
+        assertParam(params(5), 'r')
         assertSameStackAs(params(6).asInstanceOf[ItemStack], redDye)
       }
     }
   }
+
+  def assertParam(param: Object, other: Any): Unit =
+    assert(param == other)
 
   def assertSameStackAs(itemStack: ItemStack, otherStack: ItemStack): Unit =
     assert(
