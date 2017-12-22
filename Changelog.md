@@ -6,6 +6,7 @@ Minor fixes and documentation improvements:
 * Added a step by step documentation on how to setup the development environment;
 * Added a Travis CI build badge to the Readme;
 * Drop the need to pass `this` to the `creatures` method;
+* Enabled a few more scala compiler flags;
 * ??? 
 
 ================================ Version 0.6-1.11.2 ==================================
