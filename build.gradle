@@ -34,7 +34,16 @@ allprojects {
 
     tasks.withType(ScalaCompile) {
         scalaCompileOptions.useAnt = false
-        scalaCompileOptions.additionalParameters = ["-language:implicitConversions"]
+        scalaCompileOptions.additionalParameters = [
+            "-deprecation",
+            "-feature",
+            "-unchecked",
+            "-language:implicitConversions",
+            "-Yno-adapted-args",
+            "-Ywarn-unused",
+            "-Xfatal-warnings",
+            "-Xlint"
+        ]
     }
 
     idea {
