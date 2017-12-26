@@ -22,5 +22,6 @@ Documentation
 * [What is EasyForger](doc/overview.md)
 * [Setting up your Environment](doc/setup.md)
 * [Your First Mod](doc/first-mod.md)
+* [Compiling and Testing](doc/compile-test.md)
 * [Contributing](doc/contributing.md)
 * [Getting Help](doc/getting-help.md)
