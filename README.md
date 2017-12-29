@@ -23,5 +23,5 @@ Documentation
 * [Setting up your Environment](doc/setup.md)
 * [Your First Mod](doc/first-mod.md)
 * [Compiling and Testing](doc/compile-test.md)
-* [Contributing](doc/contributing.md)
+* [Contributing](CONTRIBUTING.md)
 * [Getting Help](doc/getting-help.md)
