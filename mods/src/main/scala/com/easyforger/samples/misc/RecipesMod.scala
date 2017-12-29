@@ -18,10 +18,10 @@ object RecipesMod extends EasyForger {
   @EventHandler
   def init(event: FMLInitializationEvent): Unit = {
     smelting(
-      Blocks.GRAVEL to Blocks.DIAMOND_BLOCK(10) withXp 0.5,
+      Blocks.GRAVEL to 10 * Blocks.DIAMOND_BLOCK withXp 0.5,
       Blocks.DIRT to Blocks.EMERALD_BLOCK,
       Items.ARROW to Items.FLINT withXp 0.1,
-      Blocks.TORCH(10) to Items.COAL,           // TODO: this `10` is ignored -> https://github.com/easyforger/easyforger/issues/70
+      Blocks.TORCH to Items.COAL,
       Items.APPLE to Items.CAKE
     )
 
@@ -29,7 +29,7 @@ object RecipesMod extends EasyForger {
       Items.COAL + Blocks.SAND to Items.DIAMOND,
       Items.COAL + Blocks.SAND + Blocks.RED_FLOWER to Blocks.TNT,
       Items.STONE_SWORD + Items.FLINT to enchanted(Items.STONE_SWORD, Enchantments.SHARPNESS, 1),
-      Blocks.SAPLING('s') to Blocks.RED_FLOWER(2) withShape
+      Blocks.SAPLING('s) to 2 * Blocks.RED_FLOWER withShape
         """
           |...
           |.s.
@@ -42,7 +42,7 @@ object RecipesMod extends EasyForger {
           |s..
         """.stripMargin,
       Blocks.DIRT + Blocks.SAND to Blocks.DIAMOND_BLOCK,
-      Items.DIAMOND_SHOVEL + Blocks.OBSIDIAN to Blocks.DIAMOND_BLOCK(5),
+      Items.DIAMOND_SHOVEL + Blocks.OBSIDIAN to 5 * Blocks.DIAMOND_BLOCK,
       Items.DIAMOND + Items.CARROT to Items.ARMOR_STAND
     )
   }

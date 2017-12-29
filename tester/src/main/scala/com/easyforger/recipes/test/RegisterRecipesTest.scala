@@ -18,7 +18,7 @@ object RegisterRecipesTest {
   val tests = Tests {
     "a recipe" - {
       "register diamond + carrot to armor_stand" - {
-        crafting(Items.DIAMOND + Items.CARROT to Items.ARMOR_STAND(2))
+        crafting(Items.DIAMOND + Items.CARROT to 2 * Items.ARMOR_STAND)
 
         val recipesList = CraftingManager.getInstance().getRecipeList
 

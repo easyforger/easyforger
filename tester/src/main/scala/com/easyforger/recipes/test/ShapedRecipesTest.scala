@@ -4,7 +4,7 @@
  */
 package com.easyforger.recipes.test
 
-import com.easyforger.recipes.RecipeSupport
+import com.easyforger.recipes.RecipeOps
 import net.minecraft.init.Items
 import net.minecraft.item.ItemStack
 import utest._ // scalastyle:ignore
@@ -22,7 +22,7 @@ object ShapedRecipesTest {
             |i.i
           """.stripMargin
 
-        val params = RecipeSupport.calcMCParamsArray(recipe)
+        val params = RecipeOps.calcMCParamsArray(recipe)
         assertParam(params(0), "   ") // scalastyle:ignore
         assertParam(params(1), "lll")
         assertParam(params(2), "i i")
@@ -40,7 +40,7 @@ object ShapedRecipesTest {
             |.d.
           """.stripMargin
 
-        val params = RecipeSupport.calcMCParamsArray(recipe)
+        val params = RecipeOps.calcMCParamsArray(recipe)
         assertParam(params(0), " c ")
         assertParam(params(1), " d ") // scalastyle:ignore
         assertParam(params(2), " d ")
@@ -58,7 +58,7 @@ object ShapedRecipesTest {
             |.r.
           """.stripMargin
 
-        val params = RecipeSupport.calcMCParamsArray(recipe)
+        val params = RecipeOps.calcMCParamsArray(recipe)
 
         assertParam(params(0), " i ") // scalastyle:ignore
         assertParam(params(1), " i ")
@@ -66,7 +66,7 @@ object ShapedRecipesTest {
         assertParam(params(3), 'i')
         assertSameStackAs(params(4).asInstanceOf[ItemStack], new ItemStack(Items.IRON_INGOT))
         assertParam(params(5), 'r')
-        assertSameStackAs(params(6).asInstanceOf[ItemStack], redDye)
+        assertSameStackAs(params(6).asInstanceOf[ItemStack], redDye.itemStack)
       }
 
       "ignore leading and trailing spaces" - {
@@ -77,7 +77,7 @@ object ShapedRecipesTest {
             | ...
           """.stripMargin
 
-        val params = RecipeSupport.calcMCParamsArray(recipe)
+        val params = RecipeOps.calcMCParamsArray(recipe)
 
         assertParam(params(0), "s s")
         assertParam(params(1), " s ")

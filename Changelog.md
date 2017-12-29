@@ -7,6 +7,9 @@ Minor fixes and documentation improvements:
 * Added a Travis CI build badge to the Readme;
 * Drop the need to pass `this` to the `creatures` method;
 * Enabled a few more scala compiler flags;
+* Code trying to set recipe sources with quantities won't compile anymore;
+* Acronyms for items in shaped recipes now are defined with `Symbol`s - i.e. `'a` instead of `'a'`;
+* Recipe result multipliers are now defined like `2 * item`, instead of `item(2)`;
 * ??? 
 
 ================================ Version 0.6-1.11.2 ==================================
