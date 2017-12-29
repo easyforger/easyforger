@@ -20,7 +20,9 @@ Please avoid submitting issues that are simply questions - for those, use the re
 
 ### Submitting Pull Requests
 
-If you want to submit code, simply open a _Pull Request_. It will be read and replied to as soon as possible!
+If you want to submit code, simply open a _Pull Request_. It will be read and replied to as soon as possible! It is also
+good idea to add a comment on the relevant issue to let us know that you are working on a given issue, to avoid duplicated
+efforts.
 
 When submitting a new _Pull Request_, have the following in mind:
 
