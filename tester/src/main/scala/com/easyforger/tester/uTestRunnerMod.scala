@@ -7,7 +7,7 @@ package com.easyforger.tester
 import com.easyforger.base.{EasyForger, LootTableLoadEventReplacerTest}
 import com.easyforger.creatures.CreaturesHandlerTest
 import com.easyforger.items.EFItemArmorTest
-import com.easyforger.recipes.test.{RecipeSupportTest, RegisterRecipesTest, ShapedRecipesTest, SmeltingRecipesTest}
+import com.easyforger.recipes.test._ // scalastyle:ignore
 import com.easyforger.util.Version
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
@@ -28,7 +28,8 @@ object uTestRunnerMod extends EasyForger {
     val allTests = Map(
       CreaturesHandlerTest.getClass.getSimpleName -> CreaturesHandlerTest.tests,
       EFItemArmorTest.getClass.getSimpleName -> EFItemArmorTest.tests,
-      RecipeSupportTest.getClass.getSimpleName -> RecipeSupportTest.tests,
+      RecipeAcronymsTest.getClass.getSimpleName -> RecipeAcronymsTest.tests,
+      RecipeCompositionTest.getClass.getSimpleName -> RecipeCompositionTest.tests,
       RegisterRecipesTest.getClass.getSimpleName -> RegisterRecipesTest.tests,
       ShapedRecipesTest.getClass.getSimpleName -> ShapedRecipesTest.tests,
       SmeltingRecipesTest.getClass.getSimpleName -> SmeltingRecipesTest.tests,

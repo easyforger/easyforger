@@ -39,7 +39,7 @@ object ItemsMod extends EasyForger {
     val blueChestKey = new ItemStack(chestKey, 1, chestKey.metaForSubItemName("blue"))
 
     crafting(
-      Items.IRON_INGOT + yellowDye('y') to yellowChestKey withShape
+      Items.IRON_INGOT + yellowDye('y) to yellowChestKey withShape
         """
           |...
           |iiy
@@ -51,7 +51,7 @@ object ItemsMod extends EasyForger {
           |iir
           |..i
         """.stripMargin,
-      Items.IRON_INGOT + blueDye('b') to blueChestKey withShape
+      Items.IRON_INGOT + blueDye('b) to blueChestKey withShape
         """
           |...
           |iib
@@ -68,7 +68,7 @@ object ItemsMod extends EasyForger {
       Items.IRON_SHOVEL + Items.DIAMOND to quickSpade,
       Items.IRON_AXE + Items.DIAMOND to heavyAxe,
       Items.APPLE to Blocks.CAKE,
-      Blocks.COAL_BLOCK to Blocks.DIAMOND_BLOCK(2)
+      Blocks.COAL_BLOCK to (2 * Blocks.DIAMOND_BLOCK)
     )
   }
 }

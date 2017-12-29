@@ -7,7 +7,7 @@ package com.easyforger.base
 import com.easyforger.chests.VanillaChests
 import com.easyforger.creatures.VanillaCreatures
 import com.easyforger.dungeons.VanillaDungeons
-import com.easyforger.recipes.RecipeSupport
+import com.easyforger.recipes.RecipeOps
 
 // TODO: this trait should be only mixed in in classes annotated with @mod -> https://github.com/easyforger/easyforger/issues/71
 trait EasyForger
@@ -15,7 +15,7 @@ trait EasyForger
   with VanillaDungeons
   with VanillaCreatures
   with VanillaChests
-  with RecipeSupport {
+  with RecipeOps {
 
   def modId: String
 
