@@ -4,37 +4,20 @@
  */
 package com.easyforger.recipes
 
-import com.easyforger.base.Dye
 import net.minecraft.block.Block
 import net.minecraft.enchantment.Enchantment
 import net.minecraft.init.{Blocks, Items}
 import net.minecraft.item.{EnumDyeColor, Item, ItemStack}
 
-trait RecipeOps {
+trait RecipeOps extends RecipeSourceOps with CraftingSourceOps {
+
   implicit class RecipeIntOps(quantity: Int) {
     def *(item: Item): ItemStack = new ItemStack(item, quantity)
     def *(block: Block): ItemStack = new ItemStack(block, quantity)
   }
 
-  implicit def toRecipeSource(item: Item): RecipeSource = ItemSource(item, Some(RecipeOps.shortForItem(item)))
-  implicit def toRecipeSource(block: Block): RecipeSource = BlockSource(block, Some(RecipeOps.shortForBlock(block)))
-  implicit def toRecipeSource(dye: Dye): RecipeSource =
-    DyeSource(dye, Some(RecipeOps.shortForSpecialItem(dye.itemStack.getItem, dye.itemStack.getMetadata)))
-
   implicit def recipeToSmelting(recipe: Recipe): SmeltingRecipe = SmeltingRecipe(recipe, 1)
-  implicit def recipeToCrafting(recipe: Recipe): CraftingRecipe = CraftingRecipe(Set(recipe.source), None, Some(recipe.result))
-
-  implicit class CraftingSourceItem(item: Item) {
-    def +(block: Block): CraftingRecipe = CraftingRecipe(Set(item, block))
-    def +(newItem: Item): CraftingRecipe = CraftingRecipe(Set(item, newItem))
-    def +(recipeSource: RecipeSource): CraftingRecipe = CraftingRecipe(Set(item, recipeSource))
-  }
-
-  implicit class CraftingSourceBlock(block: Block) {
-    def +(newBlock: Block): CraftingRecipe = CraftingRecipe(Set(block, newBlock))
-    def +(item: Item): CraftingRecipe = CraftingRecipe(Set(block, item))
-    def +(recipeSource: RecipeSource): CraftingRecipe = CraftingRecipe(Set(block, recipeSource))
-  }
+  implicit def recipeToCrafting(recipe: Recipe): CraftingRecipe = CraftingRecipe(Set(recipe.source), None, recipe.result)
 
   def enchanted(itemStack: ItemStack, enchantment: Enchantment, level: Int): ItemStack = {
     itemStack.addEnchantment(enchantment, level)
