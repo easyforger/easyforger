@@ -9,8 +9,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry
 object Crafting {
   def crafting(craftingRecipes: CraftingRecipe*): Unit =
     for (recipe <- craftingRecipes) {
-      require(recipe.result.isDefined, "incomplete recipe!")
-      val result = recipe.result.get
+      val result = recipe.result
 
       if (recipe.shape.isDefined)
         GameRegistry.addRecipe(result.result, RecipeOps.calcMCParamsArray(recipe): _*)

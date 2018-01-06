@@ -20,6 +20,13 @@ sealed trait RecipeSource {
   def to(result: RecipeResult): Recipe = Recipe(this, result)
 }
 
+trait RecipeSourceOps {
+  implicit def toRecipeSource(item: Item): RecipeSource = ItemSource(item, Some(RecipeOps.shortForItem(item)))
+  implicit def toRecipeSource(block: Block): RecipeSource = BlockSource(block, Some(RecipeOps.shortForBlock(block)))
+  implicit def toRecipeSource(dye: Dye): RecipeSource =
+    DyeSource(dye, Some(RecipeOps.shortForSpecialItem(dye.itemStack.getItem, dye.itemStack.getMetadata)))
+}
+
 final case class ItemSource(item: Item, acronym: Option[Symbol] = None) extends RecipeSource {
   override def itemStack: ItemStack = new ItemStack(item)
   override def withAcronym(acronym: Symbol): RecipeSource = copy(acronym = Some(acronym))
