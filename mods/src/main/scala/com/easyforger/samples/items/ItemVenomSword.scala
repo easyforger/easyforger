@@ -16,7 +16,9 @@ class ItemVenomSword(modId: String) extends EFItemSword(modId, "venomsword", Too
   val poisonLevel = 1
 
   override def hitEntity(stack: ItemStack, target: EntityLivingBase, attacker: EntityLivingBase): Boolean = {
+    // important: this won't work against Undead monsters - see `EntityLivingBase.isPotionApplicable`
     target.addPotionEffect(new PotionEffect(MobEffects.POISON, poisonDuration, poisonLevel, false, true))
+
     super.hitEntity(stack, target, attacker)
   }
 }
