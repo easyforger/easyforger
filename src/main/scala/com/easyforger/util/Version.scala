@@ -5,5 +5,5 @@
 package com.easyforger.util
 
 object Version {
-  final val version = "0.6.1-1.11.2"
+  final val version = "0.6.2-1.11.2-SNAPSHOT"
 }
