@@ -74,7 +74,7 @@ release() {
     git push
 
 #    TODO: automate this
-    read -p "Create a new github release and press enter to continue (draw new release) - this also creates the git tag"
+    read -p "Create a new github release and press enter to continue (draft new release) - this also creates the git tag"
 
 #    TODO: automate this
     read -p "Close the current milestone in github and press enter to continue"
