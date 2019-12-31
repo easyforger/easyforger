@@ -25,3 +25,15 @@ Documentation
 * [Compiling and Testing](doc/compile-test.md)
 * [Contributing](CONTRIBUTING.md)
 * [Getting Help](doc/getting-help.md)
+
+
+Publishing Artifacts
+--------------------
+
+Before you can publish artifacts to the Bintray reppository, you need to create a file called `local.properties` in the
+root of the project with the following information:
+
+```
+myBintrayUser=your-bintray-user
+myBintrayKey=your-bintray-apikey
+```
